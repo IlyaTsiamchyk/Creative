@@ -26,11 +26,12 @@ namespace EventCloud.Creatives
             _creativeRepository = creativeRepository;
         }
 
-        public async Task<ListResultOutput<CreativeListDto>> GetList(GetCreativeListInput input)
+        public async Task<ListResultOutput<CreativeListDto>> GetList(long id)
         {
             var creatives = await _creativeRepository
                 .GetAll()
-                .Include(c => c.Category.Name)
+                .Where(c => c.UserId == id)
+                .Include(c => c.Category)
                 .Include(c => c.Tags)
                 .Include(c => c.Capters)
                 .OrderByDescending(e => e.CreationTime)
@@ -39,15 +40,25 @@ namespace EventCloud.Creatives
             return new ListResultOutput<CreativeListDto>(creatives.MapTo<List<CreativeListDto>>());
         }
 
-        public async Task Create(CreateCreativeInput input)
+        public async Task Create(CreativeInput input)
         {
             var creative = new Creative { Title = input.Title, CreationTime = input.CreationTime
-                            , };
+                            , UserId = input.UserId, CategoryId = input.CategoryId };
 
             await _creativeRepository.InsertAsync(creative);
         }
 
-        public Task<Creative> Get(int id)
+        public Task<Creative> Details(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task Edit(CreativeInput input)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task Delete(int creativeId)
         {
             throw new NotImplementedException();
         }

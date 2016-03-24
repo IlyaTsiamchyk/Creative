@@ -103,7 +103,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Creatives\Dtos\CreateCreativeInput.cs" />
+    <Compile Include="Creatives\Dtos\CreativeInput.cs" />
     <Compile Include="Creatives\CreativeAppService.cs" />
     <Compile Include="Creatives\Dtos\CreativeListDto.cs" />
     <Compile Include="Creatives\Dtos\GetCreativeListInput.cs" />
