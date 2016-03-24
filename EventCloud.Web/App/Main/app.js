@@ -32,6 +32,11 @@
                     url: '/about',
                     templateUrl: '/App/Main/views/about/about.cshtml',
                     menu: 'About' //Matches to name of 'About' menu in EventCloudNavigationProvider
+                })
+                .state('creatives', {
+                    url: '/creatives',
+                    templateUrl: '/App/Main/views/creatives/index.cshtml',
+                    menu: 'Creatives'
                 });
         }
     ]);
