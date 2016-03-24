@@ -14,6 +14,7 @@ namespace EventCloud.Tests.Data
     public class TestDataBuilder
     {
         public const string TestEventTitle = "Test event title";
+        public readonly long AdminId = 1;
 
         private readonly EventCloudDbContext _context;
 
@@ -39,19 +40,9 @@ namespace EventCloud.Tests.Data
         {
             for (int i = 1; i <= 5; i++)
             {
-                var tags = new List<Tag>();
-
-                for (int j = 1; j <= 3; j++)
-                {
-                    var tag = new Tag { Name = j + " tag" };
-
-                    _context.Tags.Add(tag);
-
-                    tags.Add(tag);
-                }
-
+                var tags = GetTagsAndFillContext();
                 var category = new Category { Name = "Fantasy" };
-                var creative = new Creative { CreationTime = Clock.Now, Category = category, Tags = tags };
+                var creative = new Creative { CreationTime = Clock.Now, Category = category, Tags = tags, UserId = AdminId };
                 
                 _context.Categories.Add(category);
 
@@ -59,6 +50,22 @@ namespace EventCloud.Tests.Data
             }
 
             _context.SaveChanges();
+        }
+
+        private List<Tag> GetTagsAndFillContext()
+        {
+            var tags = new List<Tag>();
+
+            for (int j = 1; j <= 3; j++)
+            {
+                var tag = new Tag { Name = j + " tag" };
+
+                _context.Tags.Add(tag);
+
+                tags.Add(tag);
+            }
+
+            return tags;
         }
     }
 }

@@ -8,16 +8,14 @@ namespace EventCloud.Creatives
 {
     public interface ICreativeAppService : IApplicationService
     {
-        Task<ListResultOutput<CreativeListDto>> GetList(GetCreativeListInput input);
+        Task<ListResultOutput<CreativeListDto>> GetList(long userId);
 
-        Task<Creative> Get(int id);
+        Task<Creative> Details(int creativeId);
 
-        Task Create(CreateCreativeInput input);
+        Task Create(CreativeInput input);
 
-        //Task Cancel(EntityRequestInput<Guid> input);
+        Task Edit(CreativeInput input);
 
-        //Task<EventRegisterOutput> Register(EntityRequestInput<Guid> input);
-
-        //Task CancelRegistration(EntityRequestInput<Guid> input);
+        Task Delete(int creativeId);
     }
 }
