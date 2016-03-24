@@ -4,5 +4,6 @@ namespace EventCloud.Web.Navigation
     {
         public const string Events = "Events";
         public const string About = "About";
+        public const string Creatives = "Creatives";
     }
 }
