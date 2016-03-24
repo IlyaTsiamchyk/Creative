@@ -2,38 +2,39 @@
     var controllerId = 'app.views.creatives.index';
     angular.module('app').controller(controllerId, [
         '$scope', '$modal', 'abp.services.app.creative',
-        function ($scope, $modal, creativesService) {
+        function ($scope, $modal, eventService) {
             var vm = this;
-            vm.creatives = [];
+
+            vm.events = [];
             vm.filters = {
                 includeCanceledEvents: false
             };
 
-            function loadCreatives() {
-                creativesService.GetList(vm.filters).success(function (result) {
-                    vm.creatives = result.items;
+            function loadEvents() {
+                eventService.getList(vm.filters).success(function (result) {
+                    vm.events = result.items;
                 });
             };
 
             vm.openNewEventDialog = function() {
                 var modalInstance = $modal.open({
-                    templateUrl: abp.appPath + 'App/Main/views/creatives/createDialog.cshtml',
-                    controller: 'app.views.creatives.createDialog as vm',
+                    templateUrl: abp.appPath + 'App/Main/views/events/createDialog.cshtml',
+                    controller: 'app.views.events.createDialog as vm',
                     size: 'md'
                 });
 
                 modalInstance.result.then(function () {
-                    loadCreatives();
+                    loadEvents();
                 });
             };
 
             $scope.$watch('vm.filters.includeCanceledEvents', function (newValue, oldValue) {
                 if (newValue != oldValue) {
-                    loadCreatives();
+                    loadEvents();
                 }
             });
 
-            loadCreatives();
+            loadEvents();
         }
     ]);
 })();
