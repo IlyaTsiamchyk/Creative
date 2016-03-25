@@ -13,7 +13,7 @@ namespace EventCloud.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201603241250100_Initial"; }
+            get { return "201603241626114_Initial"; }
         }
         
         string IMigrationMetadata.Source
