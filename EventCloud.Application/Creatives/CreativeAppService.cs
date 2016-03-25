@@ -48,9 +48,20 @@ namespace EventCloud.Creatives
             await _creativeRepository.InsertAsync(creative);
         }
 
-        public Task<Creative> Details(int id)
+        public async Task<Creative> Details(int id)
         {
-            throw new NotImplementedException();
+            var creative = await _creativeRepository.GetAll()
+                .Include(c => c.Category)
+                .Include(c => c.Tags)
+                .Include(c => c.Capters)
+                .FirstOrDefaultAsync(c => c.Id == id);
+
+            if (creative == null)
+            {
+                throw new UserFriendlyException("Could not found the category.");
+            }
+
+            return creative;
         }
 
         public Task Edit(CreativeInput input)
@@ -58,9 +69,9 @@ namespace EventCloud.Creatives
             throw new NotImplementedException();
         }
 
-        public Task Delete(int creativeId)
+        public async Task Delete(int creativeId)
         {
-            throw new NotImplementedException();
+            await _creativeRepository.DeleteAsync(creativeId);
         }
     }
 }

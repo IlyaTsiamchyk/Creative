@@ -21,7 +21,7 @@ namespace EventCloud.Tests.Creatives
         }
 
         [Fact]
-        public async Task Should_Get_Creative_When_Use_GetList()
+        public async Task Should_Get_Creatives_When_Use_GetList()
         {
             //Act
             var output = await _creativeAppService.GetList(1);
@@ -43,6 +43,32 @@ namespace EventCloud.Tests.Creatives
             UsingDbContext(context =>
             {
                 context.Creatives.FirstOrDefault(c => c.Title == title).ShouldNotBe(null);
+            });
+        }
+
+        [Fact]
+        public async Task Should_Get_Creative_Detail()
+        {
+            Creative creative = null;
+            //Act
+            await UsingDbContext(async context =>
+            {
+                creative = await _creativeAppService.Details(1);
+
+                creative.Category.ShouldNotBe(null);
+                creative.ShouldNotBe(null);
+            });
+
+        }
+
+        [Fact]
+        public async Task Should_Delete_Creative()
+        {
+            await _creativeAppService.Delete(1);
+
+            UsingDbContext(context =>
+            {
+                context.Creatives.FirstOrDefault(c => c.Id == 1).ShouldBe(null);
             });
         }
 
