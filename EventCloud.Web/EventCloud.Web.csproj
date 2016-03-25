@@ -303,6 +303,7 @@
     <Content Include="App\Main\views\creatives\index.min.css">
       <DependentUpon>index.css</DependentUpon>
     </Content>
+    <Content Include="App\Main\views\editor\index.js" />
     <Content Include="App\Main\views\events\createDialog.js" />
     <Content Include="App\Main\views\events\detail.css">
       <DependentUpon>detail.less</DependentUpon>
@@ -474,6 +475,7 @@
     <Content Include="App\Main\views\creatives\index.css.map">
       <DependentUpon>index.css</DependentUpon>
     </Content>
+    <Content Include="App\Main\views\editor\index.cshtml" />
     <None Include="Properties\PublishProfiles\Publish_Release_FileSystem.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />

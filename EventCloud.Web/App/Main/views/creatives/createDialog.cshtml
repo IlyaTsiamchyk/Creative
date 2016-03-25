@@ -11,23 +11,11 @@
                         <input ng-model="vm.creative.Title" type="text" class="form-control" name="EventTitle">
                     </div>
                 </div>
-                <!--div>div class="form-group">
-                    <label class="col-lg-2 control-label">@L("Description")</label>
-                    <div class="col-lg-10">
-                        <textarea ng-model="vm.event.description" class="form-control" rows="5" name="EventDescription"></textarea>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-lg-2 control-label">@L("Date")</label>
-                    <div class="col-lg-10">
-                        <input ng-model="vm.event.date" type="text" class="form-control" name="EventDate" placeholder="YYYY-MM-DD HH:MM">
-                    </div>
-                </div-->
-                <div class="form-group row" ng-init="a=['aaabs', 'bas', 'cfdsadas', 'asd']">
-                    <div class="col-lg-2">
+                <div class="form-group" ng-init="a=['aaabs', 'bas', 'cfdsadas', 'asd']">
+                    <div class="col-lg-4">
                         <label class="control-label">@L("Category")</label>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-8">
                         <select class="form-control" ng-model="vm.creative.Category">
                             <option ng-repeat="aa in a" value="{{aa}}">{{aa}}</option>
                         </select>

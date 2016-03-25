@@ -30,7 +30,7 @@
                 })
                 .state('about', {
                     url: '/about',
-                    templateUrl: '/App/Main/views/about/about.cshtml',
+                    templateUrl: '/App/Main/views/editor/index.cshtml',
                     menu: 'About' //Matches to name of 'About' menu in EventCloudNavigationProvider
                 })
                 .state('creatives', {
