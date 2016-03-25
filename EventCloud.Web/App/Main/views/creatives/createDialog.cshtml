@@ -1,0 +1,43 @@
+﻿<div>
+    <div class="modal-header">
+        <h3 class="modal-title">@L("NewEvent")</h3>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal">
+            <fieldset>
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">@L("Title")</label>
+                    <div class="col-lg-10">
+                        <input ng-model="vm.creative.Title" type="text" class="form-control" name="EventTitle">
+                    </div>
+                </div>
+                <!--div>div class="form-group">
+                    <label class="col-lg-2 control-label">@L("Description")</label>
+                    <div class="col-lg-10">
+                        <textarea ng-model="vm.event.description" class="form-control" rows="5" name="EventDescription"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">@L("Date")</label>
+                    <div class="col-lg-10">
+                        <input ng-model="vm.event.date" type="text" class="form-control" name="EventDate" placeholder="YYYY-MM-DD HH:MM">
+                    </div>
+                </div-->
+                <div class="form-group row" ng-init="a=['aaabs', 'bas', 'cfdsadas', 'asd']">
+                    <div class="col-lg-2">
+                        <label class="control-label">@L("Category")</label>
+                    </div>
+                    <div class="col-lg-4">
+                        <select class="form-control" ng-model="vm.creative.Category">
+                            <option ng-repeat="aa in a" value="{{aa}}">{{aa}}</option>
+                        </select>
+                    </div>
+                </div>
+</fieldset>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-warning" ng-click="vm.cancel()">@L("Cancel")</button>
+        <button class="btn btn-primary" ng-click="vm.save()">@L("Save")</button>
+    </div>
+</div>
