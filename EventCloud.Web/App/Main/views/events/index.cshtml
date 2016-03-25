@@ -7,7 +7,7 @@
         </span>
     </h2>
     <div class="row">
-        <div ng-repeat="event in vm.events" class="event-list-item col-md-6">
+        <div ng-repeat="event in vm.events" class="event-list-item col-md-6">            
             <div class="event-body">
                 <h3 class="event-title">
                     {{event.title}}
@@ -32,4 +32,5 @@
             </div>
         </div>
     </div>
+    <dir-disqus config="disqusConfig"></dir-disqus>
 </div>

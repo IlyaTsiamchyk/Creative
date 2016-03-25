@@ -9,7 +9,9 @@
         'ui.bootstrap',
         'ui.jq',
 
-        'abp'
+        'abp',
+
+        'angularUtils.directives.dirDisqus'
     ]);
 
     //Configuration for Angular UI routing.

@@ -303,6 +303,7 @@
     <Content Include="App\Main\views\creatives\index.min.css">
       <DependentUpon>index.css</DependentUpon>
     </Content>
+    <Content Include="App\Main\views\layout\dirDisqus.js" />
     <Content Include="App\Main\views\events\createDialog.js" />
     <Content Include="App\Main\views\events\detail.css">
       <DependentUpon>detail.less</DependentUpon>

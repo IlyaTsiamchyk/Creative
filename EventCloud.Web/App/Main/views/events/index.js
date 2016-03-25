@@ -28,6 +28,12 @@
                 });
             };
 
+            $scope.disqusConfig = {
+                disqus_shortname: 'CreativeBlog',
+                disqus_identifier: 'http://localhost:6334/#/events',
+                disqus_url: 'http://localhost:6334/#/events'
+            };
+
             $scope.$watch('vm.filters.includeCanceledEvents', function (newValue, oldValue) {
                 if (newValue != oldValue) {
                     loadEvents();
