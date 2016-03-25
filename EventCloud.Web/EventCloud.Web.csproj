@@ -318,6 +318,7 @@
     <Content Include="App\Main\views\events\index.min.css">
       <DependentUpon>index.css</DependentUpon>
     </Content>
+    <Content Include="App\Main\views\layout\dirDisqus.js" />
     <Content Include="App\Main\views\layout\header.js" />
     <Content Include="App\Main\views\layout\layout.js" />
     <Content Include="App\Main\views\events\index.js" />
