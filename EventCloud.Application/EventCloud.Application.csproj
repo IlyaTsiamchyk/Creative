@@ -103,6 +103,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Categories\Dtos\CategoryListDto.cs" />
+    <Compile Include="Categories\CategoryAppService.cs" />
+    <Compile Include="Categories\ICategoryAppService.cs" />
     <Compile Include="Creatives\Dtos\CreativeInput.cs" />
     <Compile Include="Creatives\CreativeAppService.cs" />
     <Compile Include="Creatives\Dtos\CreativeListDto.cs" />
@@ -123,6 +126,8 @@
     <Compile Include="Roles\Dto\UpdateRolePermissionsInput.cs" />
     <Compile Include="Statistics\IStatisticsAppService.cs" />
     <Compile Include="Statistics\StatisticsAppService.cs" />
+    <Compile Include="Tags\TagAppService.cs" />
+    <Compile Include="Tags\ITagAppService.cs" />
     <Compile Include="Users\IUserAppService.cs" />
     <Compile Include="Roles\RoleAppService.cs" />
     <Compile Include="Sessions\Dto\GetCurrentLoginInformationsOutput.cs" />

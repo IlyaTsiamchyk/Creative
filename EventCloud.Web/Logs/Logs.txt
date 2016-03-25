@@ -17754,3 +17754,41 @@ System.InvalidOperationException: The model backing the 'EventCloudDbContext' co
    at Abp.Threading.BackgroundWorkers.PeriodicBackgroundWorkerBase.Timer_Elapsed(Object sender, EventArgs e)
 DEBUG 2016-03-24 18:51:34,321 [7    ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
 DEBUG 2016-03-24 18:51:34,321 [7    ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2016-03-24 19:50:43,491 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2016-03-24 19:50:49,247 [1    ] Abp.Modules.AbpModuleManager             - Found 13 ABP modules in total.
+DEBUG 2016-03-24 19:50:49,253 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.8.0.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-03-24 19:50:49,255 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.8.0.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-03-24 19:50:49,255 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.8.0.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-03-24 19:50:49,256 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.8.0.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-03-24 19:50:49,256 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.8.0.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-03-24 19:50:49,256 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.8.0.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-03-24 19:50:49,256 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=0.8.0.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-03-24 19:50:49,256 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=0.8.0.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-03-24 19:50:49,256 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: EventCloud.EventCloudApplicationModule, EventCloud.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-03-24 19:50:49,257 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: EventCloud.EventCloudCoreModule, EventCloud.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-03-24 19:50:49,257 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: EventCloud.EventCloudDataModule, EventCloud.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-03-24 19:50:49,257 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: EventCloud.Web.EventCloudWebModule, EventCloud.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-03-24 19:50:49,257 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: EventCloud.Api.EventCloudWebApiModule, EventCloud.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-03-24 19:50:49,263 [1    ] Abp.Modules.AbpModuleManager             - 13 modules loaded.
+DEBUG 2016-03-24 19:50:55,217 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2016-03-24 19:50:55,252 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2016-03-24 19:50:55,256 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2016-03-24 19:50:55,281 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2016-03-24 19:50:55,284 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: EventCloud
+DEBUG 2016-03-24 19:50:55,882 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2016-03-24 19:51:00,950 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 7 classes defines auto mapping attributes
+DEBUG 2016-03-24 19:51:00,950 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - EventCloud.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2016-03-24 19:51:01,032 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - EventCloud.Sessions.Dto.UserLoginInfoDto
+DEBUG 2016-03-24 19:51:01,043 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - EventCloud.Events.Dtos.EventListDto
+DEBUG 2016-03-24 19:51:01,054 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - EventCloud.Events.Dtos.EventRegistrationDto
+DEBUG 2016-03-24 19:51:01,057 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - EventCloud.Events.Dtos.EventDetailOutput
+DEBUG 2016-03-24 19:51:01,059 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - EventCloud.Creatives.CreativeListDto
+DEBUG 2016-03-24 19:51:01,061 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - EventCloud.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2016-03-24 19:51:01,114 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'EventCloud.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2016-03-24 19:51:01,115 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'EventCloud.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2016-03-24 19:51:01,117 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'EventCloud.Statistics.IStatisticsAppService' with service name 'app/statistics'.
+DEBUG 2016-03-24 19:51:01,118 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'EventCloud.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2016-03-24 19:51:01,120 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'EventCloud.Events.IEventAppService' with service name 'app/event'.
+DEBUG 2016-03-24 19:51:01,121 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'EventCloud.Creatives.ICreativeAppService' with service name 'app/creative'.
+WARN  2016-03-24 19:51:16,974 [79   ] Abp.Logging.LogHelper                    - Can not find 'Creatives' in localization source 'EventCloud'!
+WARN  2016-03-24 19:51:20,045 [76   ] Abp.Logging.LogHelper                    - Can not find 'Login' in localization source 'EventCloud'!
