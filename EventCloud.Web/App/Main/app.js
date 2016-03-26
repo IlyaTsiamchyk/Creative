@@ -11,7 +11,8 @@
 
         'abp',
 
-        'angularUtils.directives.dirDisqus'
+        'angularUtils.directives.dirDisqus',
+        'textAngular'
     ]);
 
     //Configuration for Angular UI routing.

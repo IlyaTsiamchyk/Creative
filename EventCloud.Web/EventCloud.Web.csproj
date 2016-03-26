@@ -304,6 +304,7 @@
       <DependentUpon>index.css</DependentUpon>
     </Content>
     <Content Include="App\Main\views\editor\index.js" />
+    <Content Include="App\Main\views\editor\style.css" />
     <Content Include="App\Main\views\events\createDialog.js" />
     <Content Include="App\Main\views\events\detail.css">
       <DependentUpon>detail.less</DependentUpon>
@@ -1343,7 +1344,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>6234</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

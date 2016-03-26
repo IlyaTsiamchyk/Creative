@@ -1,10 +1,42 @@
 ﻿(function () {
     var controllerId = 'app.views.creatives.index';
     angular.module('app').controller(controllerId, [
-        'textAngular', function wysiwygeditor($scope) {
-            $scope.orightml = '<h2>Try me!</h2><p>textAngular is a super cool WYSIWYG Text Editor directive for AngularJS</p><p><b>Features:</b></p><ol><li>Automatic Seamless Two-Way-Binding</li><li>Super Easy <b>Theming</b> Options</li><li style="color: green;">Simple Editor Instance Creation</li><li>Safely Parses Html for Custom Toolbar Icons</li><li class="text-danger">Doesn&apos;t Use an iFrame</li><li>Works with Firefox, Chrome, and IE8+</li></ol><p><b>Code at GitHub:</b> <a href="https://github.com/fraywing/textAngular">Here</a> </p>';
-            $scope.htmlcontent = $scope.orightml;
-            $scope.disabled = false
+        '$scope', '$modal', 'abp.services.app.creative', 'abp.services.app.session',
+        function ($scope, $modal, creativesService, sessionService) {
+            var vm = this;
+            vm.creatives = [];
+
+            vm.filters = {
+                includeCanceledEvents: false
+            };
+            function loadCreatives() {
+                sessionService.getCurrentLoginInformations().success(function (result) {
+                    var sessionInformation = result;
+                    creativesService.getList(sessionInformation.user.id).success(function (result) {
+                        vm.creatives = result.items;
+                    });
+                });
+            };
+
+            vm.openNewCreativeDialog = function () {
+                console.log("openNewCreativeDialog");
+                var modalInstance = $modal.open({
+                    templateUrl: abp.appPath + 'App/Main/views/creatives/createDialog.cshtml',
+                    controller: 'app.views.creatives.createDialog as vm',
+                    size: 'md'
+                });
+
+                modalInstance.result.then(function () {
+                    loadCreatives();
+                });
+            };
+
+            $scope.$watch('vm.filters.includeCanceledEvents', function (newValue, oldValue) {
+                if (newValue != oldValue) {
+                    loadCreatives();
+                }
+            });
+            loadCreatives();
         }
     ]);
 })();
