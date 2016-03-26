@@ -1,42 +1,62 @@
 ﻿(function () {
-    var controllerId = 'app.views.creatives.index';
+    var controllerId = 'app.views.editor.index';
     angular.module('app').controller(controllerId, [
         '$scope', '$modal', 'abp.services.app.creative', 'abp.services.app.session',
         function ($scope, $modal, creativesService, sessionService) {
             var vm = this;
-            vm.creatives = [];
-
-            vm.filters = {
-                includeCanceledEvents: false
-            };
-            function loadCreatives() {
-                sessionService.getCurrentLoginInformations().success(function (result) {
-                    var sessionInformation = result;
-                    creativesService.getList(sessionInformation.user.id).success(function (result) {
-                        vm.creatives = result.items;
-                    });
-                });
-            };
-
-            vm.openNewCreativeDialog = function () {
-                console.log("openNewCreativeDialog");
-                var modalInstance = $modal.open({
-                    templateUrl: abp.appPath + 'App/Main/views/creatives/createDialog.cshtml',
-                    controller: 'app.views.creatives.createDialog as vm',
-                    size: 'md'
-                });
-
-                modalInstance.result.then(function () {
-                    loadCreatives();
-                });
-            };
-
-            $scope.$watch('vm.filters.includeCanceledEvents', function (newValue, oldValue) {
-                if (newValue != oldValue) {
-                    loadCreatives();
+            vm.globalId = 0;
+            vm.chaptersList = [
+                {
+                    Name: "firts chap",
+                    Content: 'asakjhdshdskjadsfkjdsfjdsfjads',
+                    Number: 1,
+                    Id: 1
+                },
+                {
+                    Name: "sec chap",
+                    Content: 'asdasddfsczxczxcjads',
+                    Number: 3,
+                    Id: 2
+                },
+                {
+                    Name: "thre chap",
+                    Content: 'asadzxczxfjdsfjads',
+                    Number: 5,
+                    Id: 3
+                },
+                {
+                    Name: "fouth chap",
+                    Content: 'asakzxcaddqwadasdasdfkjdsfjdsfjads',
+                    Number: 6,
+                    Id: 4
                 }
-            });
-            loadCreatives();
+            ]
+            vm.editorContent = 'qwertyuiop';
+            vm.creativeTitle = 'Kokoko';
+            vm.getChapterContent = function (Id) {
+                Id--;
+                vm.chaptersList[vm.globalId].Content = vm.editorContent;
+                vm.editorContent = vm.chaptersList[Id].Content;
+                vm.globalId = Id;
+            };
+            vm.saveCreative = function () {
+                
+            };
+            
+            vm.removeCreative = function () {
+                
+            }
+            vm.newChapter = function () {
+                vm.chaptersList.push({
+                    Name: "New Chapter",
+                    Content: '',
+                    Number: vm.chaptersList.length + 1,
+                    Id: vm.chaptersList.length + 1
+                });
+            }
+            vm.removeChapter = function () {
+                
+            }
         }
     ]);
 })();
