@@ -13,6 +13,8 @@ namespace EventCloud.Creatives
     {
         public virtual string Title { get; set; }
 
+        public virtual string Url { get; set; }
+
         public virtual long UserId { get; set; }
         public virtual User User { get; set; }
 

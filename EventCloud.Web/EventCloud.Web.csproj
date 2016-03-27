@@ -324,6 +324,10 @@
     <Content Include="App\Main\views\layout\layout.js" />
     <Content Include="App\Main\views\events\index.js" />
     <Content Include="App\Main\views\about\about.js" />
+    <Content Include="App_Data\EventCloud.mdf" />
+    <Content Include="App_Data\EventCloud_log.ldf">
+      <DependentUpon>EventCloud.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-cosmo.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
