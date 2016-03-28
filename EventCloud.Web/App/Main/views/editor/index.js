@@ -1,5 +1,5 @@
 ﻿(function () {
-    var controllerId = 'app.views.editor.index';
+    var controllerId = 'app.views.editor.indexx';
     angular.module('app').controller(controllerId, [
         '$scope', '$modal', 'abp.services.app.creative', 'abp.services.app.session',
         function ($scope, $modal, creativesService, sessionService) {

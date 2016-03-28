@@ -1,30 +1,32 @@
-﻿    <link href="~/App/Main/views/editor/style.css" rel="stylesheet">
-    <div id="EditorIndex" ng-controller="app.views.editor.index as vm">
-        <div class="pull-right">
-            <button type="button"
-                    class="btn btn-danger"
-                    ng-click="newChapter()">
-                @L("RemoveCreative")
-            </button>
-            <button type="button"
-                    class="btn btn-success"
-                    ng-click="newChapter()">
-                @L("SaveCreative")
-            </button>
-        </div>
-        <h2>
-            <input ng-model="vm.creativeTitle"
-                   style="border:none"/>
-        </h2>
-        
-        <div class="row">
-            <div class="col-md-2" ng-repeat="chapter in vm.chaptersList" track by $index>
-                <button type="button"
-                        ng-click="vm.getChapterContent(chapter.Id)"
-                        class="btn btn-default btn-sm"
-                        data-toggle="tooltip" title="{{chapter.Number}}!">
+﻿<link href="~/App/Main/views/editor/style.css" rel="stylesheet">
+<div id="EditorIndex" ng-controller="app.views.editor.indexx as vm">
+    <div class="pull-right">
+        <button type="button"
+                class="btn btn-danger"
+                ng-click="newChapter()">
+            @L("RemoveCreative")
+        </button>
+        <button type="button"
+                class="btn btn-success"
+                ng-click="newChapter()">
+            @L("SaveCreative")
+        </button>
+    </div>
+    <h2>
+        <input ng-model="vm.creativeTitle"
+               style="border:none" />
+    </h2>
+
+    <div class="row">
+        <div class="col-md-2 dropdown" ng-repeat="chapter in vm.chaptersList" track by $index>
+            <div ng-click="vm.getChapterContent(chapter.Id)"
+                 class="btn btn-default dropbtn">
+                <div style="overflow:hidden;">
                     {{chapter.Name}}
-                </button>
+                </div>
+                <div class="dropdown-content">
+                    <div ng-bind-html="chapter.Content" />
+                </div>
             </div>
         </div>
         <div class="pull-right">
@@ -35,9 +37,11 @@
                     class="btn btn-success glyphicon glyphicon-plus"
                     ng-click="vm.newChapter()"></button>
         </div>
+     </div>
         <h2>
-            <input ng-model="vm.chaptersList[vm.globalId].Name" 
-                   style="border:none"/>
+            <input ng-model="vm.chaptersList[vm.globalId].Name"
+                    style="border:none" />
         </h2>
         <div text-angular="text-angular" ng-model="vm.editorContent"></div>
+        <div ng-bind-html="vm.editorContent"></div>
     </div>
