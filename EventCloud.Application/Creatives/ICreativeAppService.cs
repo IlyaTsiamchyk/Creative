@@ -2,15 +2,16 @@
 using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
-using EventCloud.Events.Dtos;
+using EventCloud.Creatives;
 
-namespace EventCloud.Creatives
+namespace EventCloud.Application
 {
     public interface ICreativeAppService : IApplicationService
     {
-        Task<ListResultOutput<CreativeListDto>> GetList(long userId);
+        Task<string> GetList(long userId);
 
-        Task<Creative> Details(int creativeId);
+        Task<string> Details(int creativeId);
+        //Task<CreativeListDto> Details(int creativeId);
 
         Task Create(CreativeInput input);
 

@@ -1,6 +1,7 @@
 ﻿using Abp.Application.Services;
 using Abp.Domain.Repositories;
 using Abp.UI;
+using Abp.Web.Models;
 using EventCloud.Core.Entities;
 using System.Threading.Tasks;
 

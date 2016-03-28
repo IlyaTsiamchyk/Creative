@@ -12,8 +12,10 @@ using Abp.AutoMapper;
 using Abp.Linq.Extensions;
 using Abp.UI;
 using Abp.Application.Services.Dto;
+using EventCloud.Creatives;
+using Newtonsoft.Json;
 
-namespace EventCloud.Creatives
+namespace EventCloud.Application
 {
     [AbpAuthorize]
     public class CreativeAppService : EventCloudAppServiceBase, ICreativeAppService
@@ -26,42 +28,59 @@ namespace EventCloud.Creatives
             _creativeRepository = creativeRepository;
         }
 
-        public async Task<ListResultOutput<CreativeListDto>> GetList(long id)
+        public async Task<string> GetList(long id)
         {
             var creatives = await _creativeRepository
                 .GetAll()
                 .Where(c => c.UserId == id)
-                .Include(c => c.Category)
-                .Include(c => c.Tags)
-                .Include(c => c.Capters)
+                .Include(c => c.Rates)
                 .OrderByDescending(e => e.CreationTime)
                 .ToListAsync();
 
-            return new ListResultOutput<CreativeListDto>(creatives.MapTo<List<CreativeListDto>>());
+            string jsonResult = JsonConvert.SerializeObject(creatives, Formatting.Indented,
+                                   new JsonSerializerSettings
+                                {
+                                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                                });
+            return jsonResult;
+            //return new ListResultOutput<CreativeListDto>(creatives.MapTo<List<CreativeListDto>>());
         }
 
         public async Task Create(CreativeInput input)
         {
-            var creative = new Creative { Title = input.Title, CreationTime = input.CreationTime
-                            , UserId = input.UserId, CategoryId = input.CategoryId };
+            var creative = new Creative
+            {
+                Title = input.Title,
+                CreationTime = input.CreationTime
+                            ,
+                UserId = input.UserId,
+                CategoryId = input.CategoryId
+            };
 
             await _creativeRepository.InsertAsync(creative);
         }
 
-        public async Task<Creative> Details(int id)
+        public async Task<string> Details(int id)
         {
             var creative = await _creativeRepository.GetAll()
                 .Include(c => c.Category)
                 .Include(c => c.Tags)
                 .Include(c => c.Capters)
+                .Include(c => c.Rates)
                 .FirstOrDefaultAsync(c => c.Id == id);
 
             if (creative == null)
             {
-                throw new UserFriendlyException("Could not found the category.");
+                throw new UserFriendlyException("Could not found the creative.");
             }
 
-            return creative;
+            string jsonResult = JsonConvert.SerializeObject(creative, Formatting.Indented,
+                                   new JsonSerializerSettings
+                                   {
+                                       ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                                   });
+            return jsonResult;
+            //return creative.MapTo<CreativeListDto>();
         }
 
         public Task Edit(CreativeInput input)
