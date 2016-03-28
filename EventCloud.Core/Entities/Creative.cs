@@ -23,7 +23,7 @@ namespace EventCloud.Creatives
         //public virtual ApplicationUser User { get; set; }
         //public ICollection<CreativeTag> CreativeTags { get; set; }
         public virtual IList<Tag> Tags { get; set; }
-        public virtual IList<Chapter> Capters { get; set; }
+        public virtual IList<Chapter> Chapters { get; set; }
         public virtual IList<Rate> Rates { get; set; }
 
         public virtual DateTime CreationTime { get; set; }
