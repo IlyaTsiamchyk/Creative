@@ -15,7 +15,7 @@ namespace EventCloud.Application
 
         Task Create(CreativeInput input);
 
-        Task Edit(CreativeInput input);
+        Task Edit(CreativeEditInput input);
 
         Task Delete(int creativeId);
     }

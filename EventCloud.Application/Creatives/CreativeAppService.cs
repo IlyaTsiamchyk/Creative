@@ -51,8 +51,7 @@ namespace EventCloud.Application
             var creative = new Creative
             {
                 Title = input.Title,
-                CreationTime = input.CreationTime
-                            ,
+                CreationTime = input.CreationTime,
                 UserId = input.UserId,
                 CategoryId = input.CategoryId
             };
@@ -65,7 +64,7 @@ namespace EventCloud.Application
             var creative = await _creativeRepository.GetAll()
                 .Include(c => c.Category)
                 .Include(c => c.Tags)
-                .Include(c => c.Capters)
+                .Include(c => c.Chapters)
                 .Include(c => c.Rates)
                 .FirstOrDefaultAsync(c => c.Id == id);
 
@@ -83,9 +82,19 @@ namespace EventCloud.Application
             //return creative.MapTo<CreativeListDto>();
         }
 
-        public Task Edit(CreativeInput input)
+        public async Task Edit(CreativeEditInput input)
         {
-            throw new NotImplementedException();
+            var creative = new Creative
+            {
+                Title = input.Title,
+                CreationTime = input.CreationTime,
+                UserId = input.UserId,
+                CategoryId = input.CategoryId,
+                Chapters = input.Chapters
+
+            };
+
+            await _creativeRepository.UpdateAsync(creative);
         }
 
         public async Task Delete(int creativeId)

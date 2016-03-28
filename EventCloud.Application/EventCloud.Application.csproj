@@ -106,6 +106,7 @@
     <Compile Include="Categories\Dtos\CategoryListDto.cs" />
     <Compile Include="Categories\CategoryAppService.cs" />
     <Compile Include="Categories\ICategoryAppService.cs" />
+    <Compile Include="Creatives\Dtos\CreativeEditInput.cs" />
     <Compile Include="Creatives\Dtos\CreativeInput.cs" />
     <Compile Include="Creatives\CreativeAppService.cs" />
     <Compile Include="Creatives\Dtos\CreativeListDto.cs" />
