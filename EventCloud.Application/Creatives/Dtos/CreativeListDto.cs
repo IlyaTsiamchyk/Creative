@@ -18,7 +18,7 @@ namespace EventCloud.Application
         public string CategoryUrl { get; set; }
 
         public List<Tag> Tags { get; set; }
-        //public IList<Chapter> Capters { get; set; }
-        //public IList<Rate> Rates { get; set; }
+        public IList<Chapter> Capters { get; set; }
+        public IList<Rate> Rates { get; set; }
     }
 }

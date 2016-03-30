@@ -37,7 +37,9 @@ namespace EventCloud.Application
                 .OrderByDescending(e => e.CreationTime)
                 .ToListAsync();
 
-            string jsonResult = JsonConvert.SerializeObject(creatives, Formatting.Indented,
+            var mappedCreatives = new ListResultOutput<CreativeListDto>(creatives.MapTo<List<CreativeListDto>>());
+
+            string jsonResult = JsonConvert.SerializeObject(mappedCreatives, Formatting.Indented,
                                    new JsonSerializerSettings
                                 {
                                     ReferenceLoopHandling = ReferenceLoopHandling.Ignore
