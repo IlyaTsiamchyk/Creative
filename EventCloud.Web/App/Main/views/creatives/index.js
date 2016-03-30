@@ -4,7 +4,7 @@
         '$scope', '$modal', 'abp.services.app.creative', 'abp.services.app.session',
         function ($scope, $modal, creativesService, sessionService) {
             var vm = this;
-            vm.creatives = [];
+            vm.creatives;
             
             vm.filters = {
                 includeCanceledEvents: false
@@ -13,10 +13,15 @@
                 sessionService.getCurrentLoginInformations().success(function (result) {
                     var sessionInformation = result;
                     creativesService.getList(sessionInformation.user.id).success(function (result) {
-                        vm.creatives = result.items;
+                        vm.creatives = jQuery.parseJSON(result);
+                        console.log(vm.creatives);
                     });
                 });
             };
+
+            creativesService.details(1).success(function (result) {
+                //console.log(result);
+            });
 
             vm.openNewCreativeDialog = function () {
                 console.log("openNewCreativeDialog");
@@ -37,6 +42,7 @@
                 }
             });
             loadCreatives();
+            console.log(vm.creatives);
         }
     ]);
 })();

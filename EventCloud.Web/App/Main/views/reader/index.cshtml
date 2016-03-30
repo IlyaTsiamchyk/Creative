@@ -1,0 +1,13 @@
+﻿<link href="~/App/Main/views/editor/style.css" rel="stylesheet">
+<div id="EditorIndex" ng-controller="app.views.reader.index as vm">
+    <div class="pull-right">
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-secondary" ng-click="vm.setStyleId(0)">Small</button>
+            <button type="button" class="btn btn-secondary" ng-click="vm.setStyleId(1)">Middle</button>
+            <button type="button" class="btn btn-secondary" ng-click="vm.setStyleId(2)">Big</button>
+        </div>
+    </div>
+    <div ng-style="vm.creativeReader">
+        <p>kokoko</p>
+    </div>
+</div>

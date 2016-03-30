@@ -31,6 +31,7 @@
                     Id: 4
                 }
             ]
+            console.log(vm.chaptersList);
             vm.editorContent = 'qwertyuiop';
             vm.creativeTitle = 'Kokoko';
             vm.getChapterContent = function (Id) {

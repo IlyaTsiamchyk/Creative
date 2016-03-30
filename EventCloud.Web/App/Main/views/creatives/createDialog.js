@@ -8,7 +8,7 @@
                 Title: '',
                 CreationTime: moment().format('MMMM Do YYYY, h:mm:ss a'),
                 UserId: getUserId,
-                Category: 'novel'
+                Category
             }
 
             vm.save = function() {
