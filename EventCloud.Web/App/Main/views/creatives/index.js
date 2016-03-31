@@ -13,7 +13,7 @@
                 sessionService.getCurrentLoginInformations().success(function (result) {
                     var sessionInformation = result;
                     creativesService.getList(sessionInformation.user.id).success(function (result) {
-                        vm.creatives = jQuery.parseJSON(result);
+                        vm.creatives = jQuery.parseJSON(result).Items;
                         console.log(vm.creatives);
                     });
                 });
