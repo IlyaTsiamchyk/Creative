@@ -13,7 +13,7 @@ namespace EventCloud.Creatives
         public int UserId { get; set; }
 
         public DateTime CreationTime { get; set; }
-        public IList<Chapter> Capters { get; set; }
+        public IList<Chapter> Chapters { get; set; }
         public IList<Rate> Rates { get; set; }
     }
 }

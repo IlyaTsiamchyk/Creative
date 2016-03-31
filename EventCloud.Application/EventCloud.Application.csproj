@@ -106,12 +106,14 @@
     <Compile Include="Categories\Dtos\CategoryListDto.cs" />
     <Compile Include="Categories\CategoryAppService.cs" />
     <Compile Include="Categories\ICategoryAppService.cs" />
+    <Compile Include="Creatives\Dtos\ChapterInput.cs" />
     <Compile Include="Creatives\Dtos\CreativeEditInput.cs" />
     <Compile Include="Creatives\Dtos\CreativeInput.cs" />
     <Compile Include="Creatives\CreativeAppService.cs" />
     <Compile Include="Creatives\Dtos\CreativeListDto.cs" />
     <Compile Include="Creatives\Dtos\GetCreativeListInput.cs" />
     <Compile Include="Creatives\ICreativeAppService.cs" />
+    <Compile Include="Creatives\Dtos\RateInput.cs" />
     <Compile Include="EventCloudApplicationModule.cs" />
     <Compile Include="EventCloudAppServiceBase.cs" />
     <Compile Include="Events\Dtos\CreateEventInput.cs" />
