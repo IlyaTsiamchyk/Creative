@@ -14,16 +14,18 @@ using Abp.UI;
 using Abp.Application.Services.Dto;
 using EventCloud.Creatives;
 using Newtonsoft.Json;
+using EventCloud.Contracts;
+using EventCloud.Core.Entities;
 
 namespace EventCloud.Application
 {
     [AbpAuthorize]
     public class CreativeAppService : EventCloudAppServiceBase, ICreativeAppService
     {
-        private readonly IRepository<Creative, int> _creativeRepository;
+        private readonly ICreativeRepository _creativeRepository;
 
         public CreativeAppService(
-            IRepository<Creative, int> creativeRepository)
+            ICreativeRepository creativeRepository)
         {
             _creativeRepository = creativeRepository;
         }
@@ -84,24 +86,39 @@ namespace EventCloud.Application
             //return creative.MapTo<CreativeListDto>();
         }
 
-        public async Task Edit(CreativeEditInput input)
+        public void Edit(CreativeEditInput input)
         {
             var creative = new Creative
             {
+                Id = input.CreativeId,
                 Title = input.Title,
                 CreationTime = input.CreationTime,
                 UserId = input.UserId,
-                CategoryId = input.CategoryId,
-                Chapters = input.Chapters
-
+                CategoryId = input.CategoryId
             };
 
-            await _creativeRepository.UpdateAsync(creative);
+            _creativeRepository.Update(creative);
+
+            foreach (var chapter in input.Chapters)
+            {
+                //chapter.Creative = creative;
+                _creativeRepository.UpdateChapter(chapter);
+            }
         }
 
         public async Task Delete(int creativeId)
         {
             await _creativeRepository.DeleteAsync(creativeId);
+        }
+
+        public void AddRate(RateInput input)
+        {
+            _creativeRepository.AddRate(input.MapTo<Rate>());
+        }
+
+        Task ICreativeAppService.AddRate(RateInput input)
+        {
+            throw new NotImplementedException();
         }
     }
 }
