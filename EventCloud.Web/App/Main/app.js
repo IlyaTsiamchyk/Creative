@@ -10,9 +10,9 @@
         'ui.jq',
 
         'abp',
-
+        'angular-input-stars',
         'angularUtils.directives.dirDisqus',
-        'textAngular'
+        'textAngular'   
     ]);
 
     //Configuration for Angular UI routing.

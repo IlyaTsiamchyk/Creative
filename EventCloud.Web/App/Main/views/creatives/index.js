@@ -19,10 +19,6 @@
                 });
             };
 
-            creativesService.details(1).success(function (result) {
-                //console.log(result);
-            });
-
             vm.openNewCreativeDialog = function () {
                 console.log("openNewCreativeDialog");
                 var modalInstance = $modal.open({

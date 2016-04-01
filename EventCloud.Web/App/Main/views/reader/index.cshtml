@@ -1,5 +1,7 @@
 ﻿<link href="~/App/Main/views/editor/style.css" rel="stylesheet">
 <div id="EditorIndex" ng-controller="app.views.reader.index as vm">
+    <input-stars max="5" ng-model="vm.property"></input-stars>
+    
     <div ng-if="vm.success">
         <h2>{{vm.creative.Title}}</h2>
         <div ng-if="vm.chaptersIsEmpty">
@@ -32,3 +34,5 @@
     <div ng-if="!vm.success">
         <h2>@L("CreativeIsNotFound")</h2>
     </div>
+
+</div>
