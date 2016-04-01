@@ -14,5 +14,6 @@ namespace EventCloud.Contracts
         void AddRate(Rate rate);
         void AddChapter(Chapter chapter);
         void UpdateChapter(Chapter chapter);
+
     }
 }
