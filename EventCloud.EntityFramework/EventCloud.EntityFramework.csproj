@@ -154,9 +154,11 @@
     <Compile Include="Migrations\201602170816278_Upgrade_To_ABP_0_8.Designer.cs">
       <DependentUpon>201602170816278_Upgrade_To_ABP_0_8.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201603271347204_Initial.cs" />
+    <EmbeddedResource Include="Migrations\201603271347204_Initial.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <Compile Include="Migrations\201603271347204_Initial.Designer.cs">
-      <DependentUpon>201603271347204_Initial.cs</DependentUpon>
+      <DependentUpon>201603271347204_Initial.resx</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\DefaultTenantRoleAndUserBuilder.cs" />
@@ -211,8 +213,8 @@
     <EmbeddedResource Include="Migrations\201602170816278_Upgrade_To_ABP_0_8.resx">
       <DependentUpon>201602170816278_Upgrade_To_ABP_0_8.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201603271347204_Initial.resx">
-      <DependentUpon>201603271347204_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201603271347204_Initial.Designer.resx">
+      <DependentUpon>201603271347204_Initial.resx</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

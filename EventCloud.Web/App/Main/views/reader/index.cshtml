@@ -1,13 +1,34 @@
 ﻿<link href="~/App/Main/views/editor/style.css" rel="stylesheet">
 <div id="EditorIndex" ng-controller="app.views.reader.index as vm">
-    <div class="pull-right">
-        <div class="btn-group" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-secondary" ng-click="vm.setStyleId(0)">Small</button>
-            <button type="button" class="btn btn-secondary" ng-click="vm.setStyleId(1)">Middle</button>
-            <button type="button" class="btn btn-secondary" ng-click="vm.setStyleId(2)">Big</button>
+    <div ng-if="vm.success">
+        <h2>{{vm.creative.Title}}</h2>
+        <div ng-if="vm.chaptersIsEmpty">
+            <div ng-style="vm.creativeReader">
+                <div>
+                    <div class="pull-right">
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-secondary  btn-default" ng-click="vm.setStyleId(0)">@L("Small")</button>
+                            <button type="button" class="btn btn-secondary  btn-default" ng-click="vm.setStyleId(1)">@L("Middle")</button>
+                            <button type="button" class="btn btn-secondary  btn-default" ng-click="vm.setStyleId(2)">@L("Big")</button>
+                        </div>
+                    </div>
+                    <h2>{{vm.chapterToShow.Name}}</h2>
+                    <div class="form-control" ng-bind-html="vm.chapterToShow.Content" />
+                </div>
+            </div>
+            <footer class="panel-footer">
+                <div class="container">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-secondary btn-default" ng-click="vm.choiseChapter(-1)">@L("Previous")</button>
+                        <button type="button" class="btn btn-secondary btn-default" ng-click="vm.choiseChapter(1)">@L("Next")</button>
+                    </div>
+                </div>
+            </footer>
         </div>
     </div>
-    <div ng-style="vm.creativeReader">
-        <p>kokoko</p>
+    <div ng-if="!vm.chaptersIsEmpty">
+        <p>@L("ChaptersIsNotFound")</p>
     </div>
-</div>
+    <div ng-if="!vm.success">
+        <h2>@L("CreativeIsNotFound")</h2>
+    </div>

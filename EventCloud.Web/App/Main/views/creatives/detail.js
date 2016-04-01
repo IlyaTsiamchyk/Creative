@@ -1,10 +1,10 @@
 ﻿(function () {
-    var controllerId = 'app.views.events.detail';
+    var controllerId = 'app.views.creatives.detail';
     angular.module('app').controller(controllerId, [
-        '$scope', '$state','$stateParams', 'abp.services.app.event',
+        '$scope', '$state','$stateParams', 'abp.services.app.creative',
         function ($scope, $state, $stateParams, eventService) {
             var vm = this;
-
+            
             function loadEvent() {
                 eventService.getDetail({
                     id: $stateParams.id
@@ -63,6 +63,7 @@
             };
 
             loadEvent();
+            
         }
     ]);
 })();
