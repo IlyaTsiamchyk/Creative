@@ -36,11 +36,21 @@
                     templateUrl: '/App/Main/views/reader/index.cshtml',
                     menu: 'About' //Matches to name of 'About' menu in EventCloudNavigationProvider
                 })
+                .state('creativeDetail', {
+                    url: '/creatives/:id',
+                    templateUrl: '/App/Main/views/reader/index.cshtml',
+                    menu: 'Creatives' 
+                })
                 .state('creatives', {
                     url: '/creatives',
                     templateUrl: '/App/Main/views/creatives/index.cshtml',
                     menu: 'Creatives'
-                });
+                })
+            .state('editor', {
+                url: '/editor/:id',
+                templateUrl: '/App/Main/views/editor/index.cshtml',
+                menu: 'Editor'
+            });
         }
     ]);
 })();

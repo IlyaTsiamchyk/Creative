@@ -12,15 +12,12 @@
                 </h3>
 
                 <p class="event-description">
-                    @L("Category"): {{creative.Category.Name | characters:100}}
+                    @L("Category"): {{creative.CategoryName | characters:100}}
                 </p>
-                <div ng-if="event.isCancelled" class="event-canceled-info">
-                    @L("ThisEventIsCanceled")
-                </div>
                 <div class="event-actions">
-                    <a class="btn btn-sm btn-info" ng-href="#/events/{{event.id}}">
-                        @L("Details") 
-                        <i class="fa fa-arrow-circle-right"/>
+                    <a class="btn btn-sm btn-info" ng-href="#/creatives/{{creative.Id}}">
+                        @L("Read") 
+                        
                     </a>
                 </div>
                 <span class="event-date"><i class="fa fa-calendar-times-o"></i> {{creative.CreationTime | momentFormat:'DD.MM.YYYY'}}</span>

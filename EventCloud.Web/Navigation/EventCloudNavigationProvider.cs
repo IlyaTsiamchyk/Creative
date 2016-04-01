@@ -16,9 +16,9 @@ namespace EventCloud.Web.Navigation
             context.Manager.MainMenu
                 .AddItem(
                     new MenuItemDefinition(
-                        AppPageNames.Events,
-                        new LocalizableString("Events", EventCloudConsts.LocalizationSourceName),
-                        url: "#/",
+                        AppPageNames.Creatives,
+                        new LocalizableString("Creatives", EventCloudConsts.LocalizationSourceName),
+                        url: "#/creatives",
                         icon: "fa fa-calendar-check-o"
                         )
                 ).AddItem(
@@ -26,13 +26,6 @@ namespace EventCloud.Web.Navigation
                         AppPageNames.About,
                         new LocalizableString("About", EventCloudConsts.LocalizationSourceName),
                         url: "#/about",
-                        icon: "fa fa-info"
-                        )
-                ).AddItem(
-                    new MenuItemDefinition(
-                        AppPageNames.Creatives,
-                        new LocalizableString("Creatives", EventCloudConsts.LocalizationSourceName),
-                        url: "#/creatives",
                         icon: "fa fa-info"
                         )
                 );
