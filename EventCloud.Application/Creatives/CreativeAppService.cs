@@ -90,7 +90,7 @@ namespace EventCloud.Application
         {
             var creative = new Creative
             {
-                Id = input.CreativeId,
+                Id = input.Id,
                 Title = input.Title,
                 CreationTime = input.CreationTime,
                 UserId = input.UserId,
