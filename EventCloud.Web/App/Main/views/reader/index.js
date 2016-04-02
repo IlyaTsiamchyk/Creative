@@ -37,6 +37,23 @@
                     vm.success = true;
                 }
             });
+            vm.tags = [{
+                id: 1,
+                name: 'koko'
+            },
+         {
+             id: 2,
+             name: 'roko'
+         },
+         {
+             id: 3,
+             name: 'roro'
+         },
+         {
+             id: 4,
+             name: 'kek'
+         }
+            ]
         }
     ]);
 })();

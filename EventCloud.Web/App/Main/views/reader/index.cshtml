@@ -1,7 +1,15 @@
 ﻿<link href="~/App/Main/views/editor/style.css" rel="stylesheet">
 <div id="EditorIndex" ng-controller="app.views.reader.index as vm">
-    <input-stars max="5" ng-model="vm.property"></input-stars>
     
+    <input-stars  ng-init="star = 3" max="20" ng-model="star"></input-stars>
+    <oi-select oi-options="item.name for item in vm.tags"
+        ng-model="bundle2"
+        multiple
+        oi-select-options="{
+    newItem: true,
+    newItemModel: {id: null, name: $query}
+}">
+    </oi-select>
     <div ng-if="vm.success">
         <h2>{{vm.creative.Title}}</h2>
         <div ng-if="vm.chaptersIsEmpty">

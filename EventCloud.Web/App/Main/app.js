@@ -8,7 +8,7 @@
         'ui.router',
         'ui.bootstrap',
         'ui.jq',
-
+        'oi.select',
         'abp',
         'angular-input-stars',
         'angularUtils.directives.dirDisqus',

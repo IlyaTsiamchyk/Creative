@@ -43,14 +43,14 @@
                             message: "Empty creative title"
                         }
                     vm.creative.Chapters.forEach(function (chapter, i, chapters) {
-                        chapter.Number = i;
+                        chapter.NumberOfChapter = i+1;
                         if (chapter.Name === '')
                             throw {
                                 message: "Empty chapter name"
                             }
-                        creativesService.edit(vm.creative);
-                        console.log(vm.creative);
                     });
+                    creativesService.edit(vm.creative);
+                    console.log(vm.creative);
                 } catch (exp) {
                     abp.message.error("", "Empty chapter name");
                 }
@@ -66,7 +66,6 @@
                     CreativeId: vm.creative.Id,
                     Content: ''
                 });
-                //setDrag();
             }
 
             vm.removeChapter = function () {
@@ -79,9 +78,6 @@
                 }
             }
 
-
-
-            //////////////////////////////////////////////////////////
         }
     ]);
 })();
