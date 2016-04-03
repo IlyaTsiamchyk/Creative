@@ -326,6 +326,8 @@
     <Content Include="App\Main\views\about\about.js" />
     <Content Include="App\Main\views\reader\index.js" />
     <Content Include="App\Main\views\reader\style.css" />
+    <Content Include="App\Main\views\userView\index.js" />
+    <Content Include="App\Main\views\userView\style.css" />
     <Content Include="App_Data\EventCloud.mdf" />
     <Content Include="App_Data\EventCloud_log.ldf">
       <DependentUpon>EventCloud.mdf</DependentUpon>
@@ -635,6 +637,7 @@
     <Content Include="bower_components\angular-sanitize\bower.json" />
     <Content Include="bower_components\angular-sanitize\package.json" />
     <Content Include="bower_components\angular-sanitize\README.md" />
+    <Content Include="App\Main\views\userView\index.cshtml" />
     <None Include="Properties\PublishProfiles\Publish_Release_FileSystem.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />

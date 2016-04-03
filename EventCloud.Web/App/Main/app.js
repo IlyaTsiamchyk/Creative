@@ -33,10 +33,10 @@
                 })
                 .state('about', {
                     url: '/about',
-                    templateUrl: '/App/Main/views/reader/index.cshtml',
+                    templateUrl: '/App/Main/views/about/about.cshtml',
                     menu: 'About' //Matches to name of 'About' menu in EventCloudNavigationProvider
                 })
-                .state('creativeDetail', {
+                .state('creativeContent', {
                     url: '/creatives/:id',
                     templateUrl: '/App/Main/views/reader/index.cshtml',
                     menu: 'Creatives' 
@@ -50,6 +50,11 @@
                 url: '/editor/:id',
                 templateUrl: '/App/Main/views/editor/index.cshtml',
                 menu: 'Editor'
+            })
+            .state('user', {
+                url: '/user/:id',
+                templateUrl: '/App/Main/views/userView/index.cshtml',
+                menu: 'User' //Matches to name of 'About' menu in EventCloudNavigationProvider
             });
         }
     ]);
