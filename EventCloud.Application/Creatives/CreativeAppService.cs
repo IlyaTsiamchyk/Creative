@@ -38,10 +38,11 @@ namespace EventCloud.Application
                 .Include(c => c.Rates)
                 .OrderByDescending(e => e.CreationTime)
                 .ToListAsync();
+            
 
             var mappedCreatives = new ListResultOutput<CreativeListDto>(creatives.MapTo<List<CreativeListDto>>());
 
-            string jsonResult = JsonConvert.SerializeObject(mappedCreatives, Formatting.Indented,
+            string jsonResult = JsonConvert.SerializeObject(mappedCreatives, Formatting.None,
                                    new JsonSerializerSettings
                                 {
                                     ReferenceLoopHandling = ReferenceLoopHandling.Ignore
@@ -116,9 +117,19 @@ namespace EventCloud.Application
             _creativeRepository.AddRate(input.MapTo<Rate>());
         }
 
-        Task ICreativeAppService.AddRate(RateInput input)
+        public IEnumerable<CreativeListDtoAll> GetAll()
         {
-            throw new NotImplementedException();
+            var creatives = _creativeRepository
+                .GetAll()
+                .Include(c => c.Rates)
+                .OrderByDescending(e => e.CreationTime)
+                .Select(c => new CreativeListDtoAll
+                    { Id = c.Id, CategoryId = c.CategoryId, CategoryName = c.Category.Name
+                        , CategoryUrl = c.Category.Url, CreativeRate = c.Rates.Average(x => x.Value)
+                        , CreationTime = c.CreationTime, Title = c.Title})
+                .ToList();
+
+            return creatives;
         }
     }
 }

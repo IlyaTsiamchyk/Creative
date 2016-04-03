@@ -3,11 +3,15 @@ using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
 using EventCloud.Creatives;
+using System.Web.Http;
+using System.Collections.Generic;
 
 namespace EventCloud.Application
 {
     public interface ICreativeAppService : IApplicationService
     {
+        [HttpGet]
+        IEnumerable<CreativeListDtoAll> GetAll();
         Task<string> GetList(long userId);
 
         Task<string> Details(int creativeId);
@@ -19,6 +23,6 @@ namespace EventCloud.Application
 
         Task Delete(int creativeId);
 
-        Task AddRate(RateInput input);
+        void AddRate(RateInput input);
     }
 }
