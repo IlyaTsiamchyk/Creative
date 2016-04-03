@@ -1,6 +1,9 @@
 using System.Threading.Tasks;
 using Abp.Authorization;
 using EventCloud.Users.Dto;
+using Abp.AutoMapper;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace EventCloud.Users
 {
@@ -14,6 +17,14 @@ namespace EventCloud.Users
         {
             _userManager = userManager;
             _permissionManager = permissionManager;
+        }
+        
+        public IEnumerable<UsersOutput> GetUsers()
+        {
+            var users = _userManager.Users.Select(u => new UsersOutput { Id = u.Id, EmailAddress = u.EmailAddress, Name = u.Name }).ToList();
+
+            //return new UsersOutput { Users = users };
+            return users;
         }
 
         public async Task ProhibitPermission(ProhibitPermissionInput input)
