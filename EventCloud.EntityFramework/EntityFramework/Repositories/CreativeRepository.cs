@@ -28,7 +28,7 @@ namespace EventCloud.EntityFramework.Repositories
 
         public void AddRate(Rate rate)
         {
-            Rate r = Context.Rates.Where(rt => rt.UserBy == rate.UserBy).FirstOrDefault<Rate>();
+            Rate r = Context.Rates.Where(rt => rt.CreativeId == rate.CreativeId && rt.UserBy == rate.UserBy).FirstOrDefault<Rate>();
 
             if (r != null) throw new ArgumentException("You are already send your rating.");
             
