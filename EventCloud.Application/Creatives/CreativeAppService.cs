@@ -48,6 +48,10 @@ namespace EventCloud.Application
                 })
                 .ToList();
 
+            var fts = _creativeRepository.FullTextSearch("The");
+            var res = fts.ToList();
+            var sec = _creativeRepository.FullTextSearch("the").ToList();
+
             return creatives;
         }
         public async Task<IEnumerable<CreativeListDtoAll>> GetList(long id)
@@ -144,7 +148,7 @@ namespace EventCloud.Application
         {
             try
             {
-                _creativeRepository.AddRate(input.MapTo<Rate>());
+                _creativeRepository.AddRate(new Rate { UserBy = input.UserBy, CreativeId = input.CreativeId, Value = input.Value });
             }
             catch (ArgumentException ex)
             {
