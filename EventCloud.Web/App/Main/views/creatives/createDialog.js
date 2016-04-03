@@ -3,7 +3,7 @@
         'abp.services.app.creative', 'abp.services.app.session', '$modalInstance', 'abp.services.app.category',
         function (creativeService, sessionService, $modalInstance, categoryService) {
             var vm = this;
-            var information = {};
+            vm.categores;
             vm.creative = {
                 Title: '',
                 CreationTime: moment().format('MMMM Do YYYY, h:mm:ss a'),
@@ -12,13 +12,12 @@
             }
 
             vm.save = function() {
-                console.log(information);
-               /* creativeService
+                creativeService
                     .create(vm.creative)
                     .success(function () {
                         abp.notify.success("Successfully saved.");
-                        $modalInstance.close();*/
-                    //});
+                        $modalInstance.close();
+                    });
             };
 
             vm.cancel = function () {
@@ -26,7 +25,13 @@
             };
             
             function getInformation() {
-               
+                sessionService.getCurrentLoginInformations().success(function (result) {
+                    vm.creative.UserId = result.user.id;
+                });
+                categoryService.getList().success(function (result) {
+                    vm.categores = result;
+                    console.log(vm.categores);
+                });
             }
             getInformation();
         }

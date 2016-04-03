@@ -11,13 +11,13 @@
                         <input ng-model="vm.creative.Title" type="text" class="form-control" name="EventTitle">
                     </div>
                 </div>
-                <div class="form-group" ng-init="a=['aaabs', 'bas', 'cfdsadas', 'asd']">
+                <div class="form-group"">
                     <div class="col-lg-4">
                         <label class="control-label">@L("Category")</label>
                     </div>
                     <div class="col-lg-8">
-                        <select class="form-control" ng-model="vm.creative.Category">
-                            <option ng-repeat="aa in a" value="{{aa}}">{{aa}}</option>
+                        <select class="form-control" ng-model="vm.creative.CategoryId">
+                            <option ng-repeat="category in vm.categores" value="{{category.id}}">{{category.name}}</option>
                         </select>
                     </div>
                 </div>
