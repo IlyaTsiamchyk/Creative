@@ -11,5 +11,6 @@ namespace EventCloud.Core.Entities
 
         public virtual int CreativeId { get; set; }
         public virtual Creative Creative { get; set; }
+        public virtual string Url { get; set; }
     }
 }

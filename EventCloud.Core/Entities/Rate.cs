@@ -9,9 +9,7 @@ namespace EventCloud.Core.Entities
 {
     public class Rate : Entity<int>
     {
-        public virtual int MaxValue { get; set; }
         public virtual double Value { get; set; }
-        public virtual int Amount { get; set; }
         public virtual int UserBy { get; set; }
 
         public virtual int CreativeId { get; set; }

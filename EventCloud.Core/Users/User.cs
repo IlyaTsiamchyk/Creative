@@ -3,11 +3,14 @@ using Abp.Authorization.Users;
 using Abp.Extensions;
 using EventCloud.MultiTenancy;
 using Microsoft.AspNet.Identity;
+using System.Collections.Generic;
 
 namespace EventCloud.Users
 {
     public class User : AbpUser<Tenant, User>
     {
+        public IEnumerable<string> Medals { get; set; }
+
         public static string CreateRandomPassword()
         {
             return Guid.NewGuid().ToString("N").Truncate(16);

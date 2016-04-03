@@ -15,6 +15,7 @@ namespace EventCloud.Core.Entities
             Creatives = new List<Creative>();
         }
         public virtual string Name { get; set; }
+        public virtual string Url { get; set; }
         //public virtual ICollection<CreativeTag> CreativeTags { get; set; }
         public virtual IList<Creative> Creatives { get; set; }
     }

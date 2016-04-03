@@ -98,6 +98,7 @@
     <Compile Include="Authorization\Roles\StaticRoleNames.cs" />
     <Compile Include="Configuration\EventCloudSettingNames.cs" />
     <Compile Include="Configuration\EventCloudSettingProvider.cs" />
+    <Compile Include="Contracts\ICreativeRepository.cs" />
     <Compile Include="Domain\Events\DomainEvents.cs" />
     <Compile Include="Editions\EditionManager.cs" />
     <Compile Include="Entities\Category.cs" />
