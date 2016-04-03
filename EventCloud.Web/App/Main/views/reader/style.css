@@ -1,1 +1,8 @@
-﻿
+﻿.ta-editor {
+  min-height: 300px;
+  height: 500px;
+  overflow-y: scroll;
+  font-family: inherit;
+  font-size: 100%;
+  margin-bottom:5px;
+}

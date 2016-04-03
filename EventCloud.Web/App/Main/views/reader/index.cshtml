@@ -1,46 +1,41 @@
-﻿<link href="~/App/Main/views/editor/style.css" rel="stylesheet">
+﻿<link href="~/App/Main/views/reader/style.css" rel="stylesheet">
 <div id="EditorIndex" ng-controller="app.views.reader.index as vm">
     
-    <input-stars  ng-init="star = 3" max="20" ng-model="star"></input-stars>
-    <oi-select oi-options="item.name for item in vm.tags"
-        ng-model="bundle2"
-        multiple
-        oi-select-options="{
-    newItem: true,
-    newItemModel: {id: null, name: $query}
-}">
-    </oi-select>
+    <input-stars class="pull-right" ng-click="vm.setRating()" max="5" ng-model="vm.Rating"></input-stars>
     <div ng-if="vm.success">
-        <h2>{{vm.creative.Title}}</h2>
-        <div ng-if="vm.chaptersIsEmpty">
+        <h2 ng-style="vm.creativeReader">{{vm.creative.Title}}</h2>
+        <div ng-if="!vm.chaptersIsEmpty">
             <div ng-style="vm.creativeReader">
                 <div>
                     <div class="pull-right">
                         <div class="btn-group" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-secondary  btn-default" ng-click="vm.setStyleId(0)">@L("Small")</button>
-                            <button type="button" class="btn btn-secondary  btn-default" ng-click="vm.setStyleId(1)">@L("Middle")</button>
-                            <button type="button" class="btn btn-secondary  btn-default" ng-click="vm.setStyleId(2)">@L("Big")</button>
+                            <button type="button" style="width: 80px" class="btn btn-secondary  btn-default" ng-click="vm.setStyleId(0)">@L("Small")</button>
+                            <button type="button" style="width: 80px" class="btn btn-secondary  btn-default" ng-click="vm.setStyleId(1)">@L("Middle")</button>
+                            <button type="button" style="width: 80px" class="btn btn-secondary  btn-default" ng-click="vm.setStyleId(2)">@L("Big")</button>
                         </div>
                     </div>
                     <h2>{{vm.chapterToShow.Name}}</h2>
-                    <div class="form-control" ng-bind-html="vm.chapterToShow.Content" />
+                    
+                    <div contenteditable="false"
+                         ng-model="vm.chapterToShow.Content"
+                         ng-hide="showHtml"
+                         ng-style="vm.creativeReader"
+                         ta-bind="text"
+                         class="ng-pristine ng-untouched ng-valid ng-scope ng-isolate-scope ta-text ta-editor form-control" />
                 </div>
             </div>
-            <footer class="panel-footer">
-                <div class="container">
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-secondary btn-default" ng-click="vm.choiseChapter(-1)">@L("Previous")</button>
-                        <button type="button" class="btn btn-secondary btn-default" ng-click="vm.choiseChapter(1)">@L("Next")</button>
-                    </div>
+            <div class="container">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" style="width: 100px" class="btn btn-secondary btn-default" ng-click="vm.choiseChapter(-1)">@L("Previous")</button>
+                    <button type="button" style="width: 100px" class="btn btn-secondary btn-default" ng-click="vm.choiseChapter(1)">@L("Next")</button>
                 </div>
-            </footer>
+            </div>
         </div>
     </div>
-    <div ng-if="!vm.chaptersIsEmpty">
+    <div ng-if="vm.chaptersIsEmpty">
         <p>@L("ChaptersIsNotFound")</p>
     </div>
     <div ng-if="!vm.success">
         <h2>@L("CreativeIsNotFound")</h2>
     </div>
-
 </div>
