@@ -4,7 +4,6 @@
         '$scope', '$modal', '$stateParams', 'abp.services.app.creative', 'abp.services.app.session',
         function ($scope, $modal, $stateParams, creativesService, sessionService) {
             var vm = this;
-            vm.tags;
             vm.isEccess = true;
             vm.creative;
             creativesService.details($stateParams.id).success(function (result) {
@@ -66,7 +65,7 @@
             };
 
             vm.removeCreative = function () {
-
+                console.log(vm.creative.Tags);
             }
 
             vm.newChapter = function () {
@@ -105,7 +104,6 @@
                     }
                 });
                 $("#sortable").disableSelection();
-
             });
         }
     ]);

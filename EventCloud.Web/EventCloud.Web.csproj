@@ -350,6 +350,36 @@
     <Content Include="bower_components\font-awesome\css\font-awesome.css" />
     <Content Include="bower_components\font-awesome\css\font-awesome.min.css" />
     <Content Include="bower_components\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="bower_components\ng-admin\doc\images\batch_delete_in_the_user_list_view.png" />
+    <Content Include="bower_components\ng-admin\doc\images\blog_demo.png" />
+    <Content Include="bower_components\ng-admin\doc\images\customized_sidebar_menu.png" />
+    <Content Include="bower_components\ng-admin\doc\images\customized_validation_in_post_edition_view.png" />
+    <Content Include="bower_components\ng-admin\doc\images\custom_page.png" />
+    <Content Include="bower_components\ng-admin\doc\images\dashboard_with_unmapped_user_panel.png" />
+    <Content Include="bower_components\ng-admin\doc\images\dot_notation_in_listView.png" />
+    <Content Include="bower_components\ng-admin\doc\images\embedded_list_in_editionView.png" />
+    <Content Include="bower_components\ng-admin\doc\images\embedded_list_in_showView.png" />
+    <Content Include="bower_components\ng-admin\doc\images\empty_admin_app.png" />
+    <Content Include="bower_components\ng-admin\doc\images\empty_api_request.png" />
+    <Content Include="bower_components\ng-admin\doc\images\filters_on_the_post_list.png" />
+    <Content Include="bower_components\ng-admin\doc\images\mapped_post_list_view.png" />
+    <Content Include="bower_components\ng-admin\doc\images\mapped_post_list_view_with_related_user.png" />
+    <Content Include="bower_components\ng-admin\doc\images\mapped_user_list_view.png" />
+    <Content Include="bower_components\ng-admin\doc\images\mapped_user_list_with_mutation.png" />
+    <Content Include="bower_components\ng-admin\doc\images\ng-admin-09-video-thumbnail.png" />
+    <Content Include="bower_components\ng-admin\doc\images\posters_galore.png" />
+    <Content Include="bower_components\ng-admin\doc\images\post_show_view_with_related_comments.png" />
+    <Content Include="bower_components\ng-admin\doc\images\quick_filter.png" />
+    <Content Include="bower_components\ng-admin\doc\images\referenced_list.png" />
+    <Content Include="bower_components\ng-admin\doc\images\reference_in_editionView.png" />
+    <Content Include="bower_components\ng-admin\doc\images\reference_in_listView.png" />
+    <Content Include="bower_components\ng-admin\doc\images\reference_many_in_editionView.png" />
+    <Content Include="bower_components\ng-admin\doc\images\reference_many_in_listView.png" />
+    <Content Include="bower_components\ng-admin\doc\images\unmapped_user_list_view.png" />
+    <Content Include="bower_components\ng-admin\doc\images\updated_post_list_view.png" />
+    <Content Include="bower_components\ng-admin\doc\images\user_edition_view.png" />
+    <Content Include="bower_components\ng-admin\doc\images\user_friendly_search_filter.png" />
+    <Content Include="bower_components\ng-admin\webpack.config.js" />
     <Content Include="bower_components\oi.select\.gitignore" />
     <Content Include="bower_components\oi.select\dist\select-tpls.js" />
     <Content Include="bower_components\oi.select\dist\select-tpls.min.js" />
@@ -472,6 +502,10 @@
     <Content Include="App\Main\web.config" />
     <Content Include="log4net.config" />
     <Content Include="App\Main\views\layout\header.cshtml" />
+    <Content Include="Logs\Logs.txt" />
+    <Content Include="obj\Debug\EventCloud.Web.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\EventCloud.Web.dll" />
+    <Content Include="obj\Debug\EventCloud.Web.pdb" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
@@ -638,6 +672,33 @@
     <Content Include="bower_components\angular-sanitize\package.json" />
     <Content Include="bower_components\angular-sanitize\README.md" />
     <Content Include="App\Main\views\userView\index.cshtml" />
+    <Content Include="bower_components\ng-admin\.bower.json" />
+    <Content Include="bower_components\ng-admin\bower.json" />
+    <Content Include="bower_components\ng-admin\CHANGELOG.md" />
+    <Content Include="bower_components\ng-admin\doc\API-mapping.md" />
+    <Content Include="bower_components\ng-admin\doc\Configuration-reference.md" />
+    <Content Include="bower_components\ng-admin\doc\Custom-pages.md" />
+    <Content Include="bower_components\ng-admin\doc\Custom-types.md" />
+    <Content Include="bower_components\ng-admin\doc\Dashboard.md" />
+    <Content Include="bower_components\ng-admin\doc\FAQ.md" />
+    <Content Include="bower_components\ng-admin\doc\Getting-started.md" />
+    <Content Include="bower_components\ng-admin\doc\Installation.md" />
+    <Content Include="bower_components\ng-admin\doc\Menus.md" />
+    <Content Include="bower_components\ng-admin\doc\Production.md" />
+    <Content Include="bower_components\ng-admin\doc\reference\Application.md" />
+    <Content Include="bower_components\ng-admin\doc\reference\Entity.md" />
+    <Content Include="bower_components\ng-admin\doc\reference\Field.md" />
+    <Content Include="bower_components\ng-admin\doc\reference\ngAdminConfigurationProvider.md" />
+    <Content Include="bower_components\ng-admin\doc\reference\View.md" />
+    <Content Include="bower_components\ng-admin\doc\Relationships.md" />
+    <Content Include="bower_components\ng-admin\doc\Reusable-directives.md" />
+    <Content Include="bower_components\ng-admin\doc\Theming.md" />
+    <Content Include="bower_components\ng-admin\doc\Usage-example.md" />
+    <Content Include="bower_components\ng-admin\LICENSE" />
+    <Content Include="bower_components\ng-admin\README.md" />
+    <Content Include="bower_components\ng-admin\SUMMARY.md" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\EventCloud.Web.csprojResolveAssemblyReference.cache" />
     <None Include="Properties\PublishProfiles\Publish_Release_FileSystem.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
@@ -1446,6 +1507,9 @@
     <Compile Include="Models\Account\RegisterResultViewModel.cs" />
     <Compile Include="Models\Account\RegisterViewModel.cs" />
     <Compile Include="Models\Account\TenantSelectionViewModel.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\EventCloudWebViewPageBase.cs" />
   </ItemGroup>
@@ -1474,7 +1538,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EventCloud.Application\EventCloud.Application.csproj">
       <Project>{edf5d964-4c0f-4f19-b674-58a38a5e5401}</Project>
