@@ -12,7 +12,7 @@ namespace EventCloud.Application
     {
         public string Title { get; set; }
 
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         public int CategoryId { get; set; }
         //public CategoryListDto Category { get; set; }

@@ -44,7 +44,8 @@ namespace EventCloud.Application
                     CategoryUrl = c.Category.Url,
                     CreativeRate = c.Rates.Average(x => x.Value),
                     CreationTime = c.CreationTime,
-                    Title = c.Title
+                    Title = c.Title,
+                    UserId = c.UserId
                 })
                 .ToList();
 
@@ -68,7 +69,8 @@ namespace EventCloud.Application
                     CategoryUrl = c.Category.Url,
                     CreativeRate = c.Rates.Average(x => x.Value),
                     CreationTime = c.CreationTime,
-                    Title = c.Title
+                    Title = c.Title,
+                    UserId = c.UserId
                 })
                 .ToListAsync();
 
@@ -102,7 +104,16 @@ namespace EventCloud.Application
                 .Include(c => c.Category)
                 .Include(c => c.Tags)
                 .Include(c => c.Chapters)
-                .Include(c => c.Rates.Average(r => r.Value))
+                .Include(c => c.Rates)
+                .Select(c => new CreativeListDto {
+                    Capters = c.Chapters, Tags = c.Tags,
+                    Id = c.Id, CategoryId = c.CategoryId,
+                    CategoryName = c.Category.Name,
+                    CategoryUrl = c.Category.Url,
+                    CreativeRate = c.Rates.Average(x => x.Value),
+                    CreationTime = c.CreationTime, Title = c.Title,
+                    UserId = c.UserId
+                })
                 .FirstOrDefaultAsync(c => c.Id == id);
 
             if (creative == null)
