@@ -14,11 +14,17 @@
                 <p class="event-description">
                     @L("Category"): {{creative.CategoryName | characters:100}}
                 </p>
+                <input-stars ng-click="vm.setRating()" max="5" ng-model="vm.Rating"></input-stars>
                 <div class="event-actions">
                     <a class="btn btn-sm btn-info" ng-href="#/creatives/{{creative.Id}}">
                         @L("Read") 
-                        
                     </a>
+                    <a class="btn btn-sm btn-info" ng-href="#/editor/{{creative.Id}}">
+                        @L("Edit")
+                    </a>
+                </div>
+                <div ng-if="true" class="event-actions">
+                    
                 </div>
                 <span class="event-date"><i class="fa fa-calendar-times-o"></i> {{creative.CreationTime | momentFormat:'DD.MM.YYYY'}}</span>
             </div>
