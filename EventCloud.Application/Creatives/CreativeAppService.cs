@@ -102,7 +102,7 @@ namespace EventCloud.Application
                 .Include(c => c.Category)
                 .Include(c => c.Tags)
                 .Include(c => c.Chapters)
-                .Include(c => c.Rates)
+                .Include(c => c.Rates.Average(r => r.Value))
                 .FirstOrDefaultAsync(c => c.Id == id);
 
             if (creative == null)
