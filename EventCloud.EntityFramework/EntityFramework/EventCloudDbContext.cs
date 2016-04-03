@@ -7,6 +7,7 @@ using EventCloud.MultiTenancy;
 using EventCloud.Users;
 using EventCloud.Creatives;
 using EventCloud.Core.Entities;
+using System.Data.Entity.Infrastructure.Interception;
 
 namespace EventCloud.EntityFramework
 {
@@ -28,6 +29,11 @@ namespace EventCloud.EntityFramework
          *   But it may cause problems when working Migrate.exe of EF. If you will apply migrations on command line, do not
          *   pass connection string name to base classes. ABP works either way.
          */
+        static EventCloudDbContext()
+        {
+            DbInterception.Add(new FtsInterceptor());
+        }
+
         public EventCloudDbContext()
             : base("Default")
         {

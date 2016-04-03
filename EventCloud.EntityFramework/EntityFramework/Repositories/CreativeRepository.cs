@@ -31,9 +31,18 @@ namespace EventCloud.EntityFramework.Repositories
             Rate r = Context.Rates.Where(rt => rt.UserBy == rate.UserBy).FirstOrDefault<Rate>();
 
             if (r != null) throw new ArgumentException("You are already send your rating.");
-
+            
             Context.Entry(rate).State = System.Data.Entity.EntityState.Added;
             Context.SaveChanges();
+        }
+
+        public List<Chapter> FullTextSearch(string searchString)
+        {
+            var s = FtsInterceptor.Fts(searchString);
+
+            var q = Context.Chapters.Where(c => c.Content.Contains(s));
+
+            return q.ToList();
         }
 
         public void UpdateChapter(Chapter chapter)

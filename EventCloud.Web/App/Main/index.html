@@ -61,9 +61,14 @@
                 //nga.field('name'),
                 //nga.field('username'),
                 nga.field('id'),
-                nga.field('emailAddress'),
+                nga.field('emailAddress').isDetailLink(true),
                 nga.field('name')
-            ]);
+        ]);
+        user.editionView().fields([
+            nga.field('name'),
+            nga.field('emailAddress')
+        ]);
+
         admin.addEntity(user);
 
         var post = nga.entity('creative');

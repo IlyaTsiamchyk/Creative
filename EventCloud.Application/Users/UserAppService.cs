@@ -4,6 +4,7 @@ using EventCloud.Users.Dto;
 using Abp.AutoMapper;
 using System.Linq;
 using System.Collections.Generic;
+using System;
 
 namespace EventCloud.Users
 {
@@ -39,6 +40,13 @@ namespace EventCloud.Users
         public async Task RemoveFromRole(long userId, string roleName)
         {
             CheckErrors(await _userManager.RemoveFromRoleAsync(userId, roleName));
+        }
+
+        public async Task<UsersOutput> GetUser(long id)
+        {
+            var user = await _userManager.GetUserByIdAsync(id);
+            
+            return user.MapTo<UsersOutput>();
         }
     }
 }
