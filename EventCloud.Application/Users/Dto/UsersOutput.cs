@@ -12,5 +12,7 @@ namespace EventCloud.Users
         public long Id { get; set; }
         public string EmailAddress { get; set; }
         public string Name { get; set; }
+        public DateTime CreationTime { get; set; }
+        public IEnumerable<string> Medals { get; set; }
     }
 }

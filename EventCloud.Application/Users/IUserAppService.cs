@@ -14,5 +14,6 @@ namespace EventCloud.Users
 
         [HttpGet]
         IEnumerable<UsersOutput> GetUsers();
+        Task<UsersOutput> GetUser(long id);
     }
 }
