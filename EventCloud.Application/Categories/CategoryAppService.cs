@@ -4,8 +4,13 @@ using Abp.UI;
 using Abp.Web.Models;
 using EventCloud.Core.Entities;
 using System.Threading.Tasks;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Abp.AutoMapper;
+using Abp.Application.Services.Dto;
 
-namespace EventCloud.Categories
+namespace EventCloud.Application
 {
     public class CategoryAppService : ICategoryAppService
     {
@@ -27,6 +32,13 @@ namespace EventCloud.Categories
             }
 
             return category;
+        }
+
+        public IEnumerable<CategoryListDto> GetList()
+        {
+            return _categoryRepository.GetAll()
+                .Select(c => new CategoryListDto { Id = c.Id, Name = c.Name, Url = c.Url})
+                .ToList();
         }
     }
 }
