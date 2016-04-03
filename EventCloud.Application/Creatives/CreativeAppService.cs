@@ -152,7 +152,6 @@ namespace EventCloud.Application
             }
             catch (ArgumentException ex)
             {
-                throw new UserFriendlyException(ex.Message);
             }
         }
     }
