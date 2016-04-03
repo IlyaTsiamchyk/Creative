@@ -5,6 +5,8 @@ using Abp.Configuration.Startup;
 using Abp.Modules;
 using Abp.WebApi;
 using Abp.WebApi.Controllers.Dynamic.Builders;
+using EventCloud.Application;
+using Abp.Web;
 
 namespace EventCloud.Api
 {
@@ -17,6 +19,11 @@ namespace EventCloud.Api
 
             DynamicApiControllerBuilder
                 .ForAll<IApplicationService>(typeof(EventCloudApplicationModule).Assembly, "app")
+                .Build();
+
+            DynamicApiControllerBuilder
+                .For<ICreativeAppService>("app/creative")
+                .ForMethod("GetAll").WithVerb(HttpVerb.Get)
                 .Build();
 
             Configuration.Modules.AbpWebApi().HttpConfiguration.Filters.Add(new HostAuthenticationFilter("Bearer"));
