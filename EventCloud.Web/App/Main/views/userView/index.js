@@ -6,14 +6,12 @@
             var vm = this;
             vm.creatives;
 
-            vm.filters = {
-                includeCanceledEvents: false
-            };
+            
             function loadCreatives() {
                 sessionService.getCurrentLoginInformations().success(function (result) {
                     var sessionInformation = result;
                     creativesService.getList(sessionInformation.user.id).success(function (result) {
-                        vm.creatives = jQuery.parseJSON(result).Items;
+                        vm.creatives = result;
                         console.log(vm.creatives);
                     });
                 });
@@ -37,8 +35,15 @@
                     loadCreatives();
                 }
             });
+            vm.setRating = function (creativeId, index) {
+                creativesService.addRate({
+                    Value: vm.Rating[index],
+                    UserBy: sessionInformation.user.id,
+                    CreativeId: creativeId
+                });
+            }
+
             loadCreatives();
-            console.log(vm.creatives);
         }
     ]);
 })();
