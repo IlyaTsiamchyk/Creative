@@ -12,7 +12,7 @@ namespace EventCloud.Application
     {
         [HttpGet]
         IEnumerable<CreativeListDtoAll> GetAll();
-        Task<string> GetList(long userId);
+        Task<IEnumerable<CreativeListDtoAll>> GetList(long userId);
 
         Task<string> Details(int creativeId);
         //Task<CreativeListDto> Details(int creativeId);

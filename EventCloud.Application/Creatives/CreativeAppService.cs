@@ -30,25 +30,53 @@ namespace EventCloud.Application
             _creativeRepository = creativeRepository;
         }
 
-        public async Task<string> GetList(long id)
+        public IEnumerable<CreativeListDtoAll> GetAll()
+        {
+            var creatives = _creativeRepository
+                .GetAll()
+                .Include(c => c.Rates)
+                .OrderByDescending(e => e.CreationTime)
+                .Select(c => new CreativeListDtoAll
+                {
+                    Id = c.Id,
+                    CategoryId = c.CategoryId,
+                    CategoryName = c.Category.Name,
+                    CategoryUrl = c.Category.Url,
+                    CreativeRate = c.Rates.Average(x => x.Value),
+                    CreationTime = c.CreationTime,
+                    Title = c.Title
+                })
+                .ToList();
+
+            return creatives;
+        }
+        public async Task<IEnumerable<CreativeListDtoAll>> GetList(long id)
         {
             var creatives = await _creativeRepository
                 .GetAll()
                 .Where(c => c.UserId == id)
-                .Include(c => c.Rates)
                 .OrderByDescending(e => e.CreationTime)
+                .Select(c => new CreativeListDtoAll
+                {
+                    Id = c.Id,
+                    CategoryId = c.CategoryId,
+                    CategoryName = c.Category.Name,
+                    CategoryUrl = c.Category.Url,
+                    CreativeRate = c.Rates.Average(x => x.Value),
+                    CreationTime = c.CreationTime,
+                    Title = c.Title
+                })
                 .ToListAsync();
-            
 
-            var mappedCreatives = new ListResultOutput<CreativeListDto>(creatives.MapTo<List<CreativeListDto>>());
+            return creatives;
 
-            string jsonResult = JsonConvert.SerializeObject(mappedCreatives, Formatting.None,
-                                   new JsonSerializerSettings
-                                {
-                                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-                                });
-            return jsonResult;
-            //return new ListResultOutput<CreativeListDto>(creatives.MapTo<List<CreativeListDto>>());
+            //var mappedCreatives = new ListResultOutput<CreativeListDto>(creatives.MapTo<List<CreativeListDto>>());
+
+            //string jsonResult = JsonConvert.SerializeObject(mappedCreatives, Formatting.None,
+            //                       new JsonSerializerSettings
+            //                    {
+            //                        ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            //                    });
         }
 
         public async Task Create(CreativeInput input)
@@ -114,22 +142,14 @@ namespace EventCloud.Application
 
         public void AddRate(RateInput input)
         {
-            _creativeRepository.AddRate(input.MapTo<Rate>());
-        }
-
-        public IEnumerable<CreativeListDtoAll> GetAll()
-        {
-            var creatives = _creativeRepository
-                .GetAll()
-                .Include(c => c.Rates)
-                .OrderByDescending(e => e.CreationTime)
-                .Select(c => new CreativeListDtoAll
-                    { Id = c.Id, CategoryId = c.CategoryId, CategoryName = c.Category.Name
-                        , CategoryUrl = c.Category.Url, CreativeRate = c.Rates.Average(x => x.Value)
-                        , CreationTime = c.CreationTime, Title = c.Title})
-                .ToList();
-
-            return creatives;
+            try
+            {
+                _creativeRepository.AddRate(input.MapTo<Rate>());
+            }
+            catch (ArgumentException ex)
+            {
+                throw new UserFriendlyException(ex.Message);
+            }
         }
     }
 }
