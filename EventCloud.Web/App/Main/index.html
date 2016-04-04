@@ -71,12 +71,27 @@
 
         admin.addEntity(user);
 
-        var post = nga.entity('creative');
-        post.listView().fields([
+        var creative = nga.entity('creative');
+        creative.listView().fields([
             nga.field('id'),
             nga.field('title')
         ]);
-        admin.addEntity(post);
+        admin.addEntity(creative);
+
+
+        var category = nga.entity('category');
+        category.listView().fields([
+            //nga.field('url'),
+            nga.field('id'),
+            nga.field('name').isDetailLink(true)
+        ]);
+        category.creationView().fields([
+            nga.field('name')
+        ]);
+        category.editionView().fields([
+            nga.field('name')
+        ]);
+        admin.addEntity(category);
             // more configuration here later
             // ...
             // attach the admin application to the DOM and run it
