@@ -53,6 +53,8 @@
                                 message: "Empty chapter name"
                             }
                     });
+                    vm.creative.Chapters = vm.creative.Capters;
+                    console.log(vm.creative);
                     creativesService.edit(vm.creative);
                     abp.notify.success('Saved successfully!','');
                 } catch (exp) {
