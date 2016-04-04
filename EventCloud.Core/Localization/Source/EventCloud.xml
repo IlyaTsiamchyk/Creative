@@ -63,6 +63,7 @@
     <text name="SourceCodeOfThisApplication" value="Source code of this application" />
     <text name="AbpOfficialWebSite" value="ASP.NET Boilerplate official web site" />
     <text name="OfficialForum" value="Official forum" />
+    <text name="Login" value="Login" />
     <text name="Logout" value="Logout" />
     <text name="Tenants" value="Tenants" />
     <text name="Users" value="Users" />
@@ -90,7 +91,8 @@
     <text name="NewCreative" value="New creative" />
     <text name="ChaptersIsNotFound" value="Chapters is not found" />
     <text name="CreativeIsNotFound" value="Creative is not found" />
-    
+    <text name="Home" value="Home" />
+
 
   </texts>
 </localizationDictionary>

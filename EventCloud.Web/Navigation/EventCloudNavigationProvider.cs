@@ -23,10 +23,10 @@ namespace EventCloud.Web.Navigation
                         )
                 ).AddItem(
                     new MenuItemDefinition(
-                        AppPageNames.About,
-                        new LocalizableString("About", EventCloudConsts.LocalizationSourceName),
-                        url: "#/about",
-                        icon: "fa fa-info"
+                        AppPageNames.Home,
+                        new LocalizableString("Home", EventCloudConsts.LocalizationSourceName),
+                        url: "#/user/",
+                        icon: "fa fa-home"
                         )
                 );
         }
