@@ -23,12 +23,16 @@
                     flag = false;
                 }
                 for (var i = 0; i < elements.length; i++) {
-                    if (flag)
+                    if (flag) {
                         elements[i].className = elements[i].className.replace('abody', 'bbody');
-                    else
+                        localStorage.setItem("style", 1);
+                    }
+                    else {
                         elements[i].className = elements[i].className.replace('bbody', 'abody');
+                        localStorage.setItem("style", 2);
+                    }
                 }
-                localStorage.setItem("style", flag);
+                
             }
 
             vm.getShownUserName = function () {
