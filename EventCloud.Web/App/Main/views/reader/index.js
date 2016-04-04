@@ -15,7 +15,9 @@
             vm.setStyleId = function (Id) {
                 vm.creativeReader = styles[Id];
             };
-            
+
+            $scope.disqusConfig = {};
+
             var chapterNumber = 0;
             vm.choiseChapter = function (offset) {
                 chapterNumber = ((chapterNumber + offset) >= 0 && offset < 0) || ((chapterNumber + offset) < vm.creative.Chapters.length && offset > 0)
@@ -32,6 +34,11 @@
                         vm.choiseChapter(chapterNumber);
                         vm.chaptersIsEmpty = false;
                     }
+                    $scope.disqusConfig = {
+                        disqus_shortname: 'CreativeBlog',
+                        disqus_identifier: 'http://localhost:6334/#/' + vm.creative.Id,
+                        disqus_url: 'http://localhost:6334/#/creatives/' + vm.creative.Id
+                    };
                     //vm.Rating = vm.creative.Rates;
                 }
             });
