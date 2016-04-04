@@ -73,5 +73,24 @@
     <text name="AdminPassword" value="Admin password" />
     <text name="CreateTheTenant" value="Create the tenant" />
 
+    <text name="Creatives" value="Creatives" />
+    <text name="Category" value="Category" />
+    <text name="Author" value="Author" />
+    <text name="Read" value="Read" />
+    <text name="Edit" value="Edit" />
+    <text name="Next" value="Next" />
+    <text name="Previous" value="Previous" />
+    <text name="Tags" value="Tags" />
+    <text name="SaveCreative" value="Save creative" />
+    <text name="RemoveCreative" value="Remove creative" />
+    <text name="CreationTime" value="Creation time" />
+    <text name="FirstMedal" value="First creative!" />
+    <text name="FifthMedal" value="More than 5 creatives!" />
+    <text name="ThirdMedal" value="You are THIRD!)" />
+    <text name="NewCreative" value="New creative" />
+    <text name="ChaptersIsNotFound" value="Chapters is not found" />
+    <text name="CreativeIsNotFound" value="Creative is not found" />
+    
+
   </texts>
 </localizationDictionary>

@@ -14,12 +14,13 @@
                 <p class="event-description">
                     @L("Category"): {{creative.categoryName | characters:100}}
                 </p>
-                <input-stars ng-click="vm.setRating(creative.id, $index)" max="5" ng-model="vm.Rating[$index]"></input-stars>
+                <a ng-href="#/user/{{creative.userId}}">@L("Author")</a>
+                <input-stars ng-click="vm.setRating(creative.id, $index)" max="5" ng-model="creative.creativeRate"></input-stars>
                 <div class="event-actions">
                     <a class="btn btn-sm btn-info" ng-href="#/creatives/{{creative.id}}">
                         @L("Read") 
                     </a>
-                    <a class="btn btn-sm btn-info" ng-href="#/editor/{{creative.id}}">
+                    <a ng-if="vm.isAccess(creative.userId)" class="btn btn-sm btn-info" ng-href="#/editor/{{creative.id}}">
                         @L("Edit")
                     </a>
                 </div>

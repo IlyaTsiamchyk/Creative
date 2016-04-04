@@ -4,35 +4,32 @@
         '$scope', '$modal', '$stateParams', 'abp.services.app.creative', 'abp.services.app.session',
         function ($scope, $modal, $stateParams, creativesService, sessionService) {
             var vm = this;
-            vm.isEccess = true;
             vm.creative;
+            vm.isAccess = false;
             creativesService.details($stateParams.id).success(function (result) {
                 try{
                     var creative = jQuery.parseJSON(result);
-                    console.log(creative);
                     if (creative !== null) {
                         sessionService.getCurrentLoginInformations().success(function (result) {
-                            var sessionInformation = result;
-                            console.log(sessionInformation);
-                            if (sessionInformation.user.id === creative.UserId) {
+                            vm.sessionInformation = result;
+                            console.log(vm.sessionInformation);
+                            if (vm.sessionInformation.user.id === creative.UserId) {
+                                vm.isAccess = true;
                                 vm.creative = creative;
-                                vm.tags = creative.Tags;
-                                vm.creative.Chapters.sort(function (a, b) {
+                                vm.creative.Capters.sort(function (a, b) {
                                     return a.NumberOfChapter - b.NumberOfChapter;
                                 })
+                                console.log(vm.creative);
+                                console.log(vm.creative.Capters);
                             }
-                            else throw{
-                                message: "No eccess!"
-                            }
+                            else
+                                abp.message.error("Error!", "You haven't eccess");
                         });
                     }
                     else
-                        throw {
-                            message: "Not found!"
-                        }
+                        abp.message.error("Error!", "Page not found");
                 } catch (exp) {
-                    abp.message.error("Error!", exp.message);
-                    vm.isEccess = false;
+                    
                 }
             });
 
@@ -48,7 +45,7 @@
                         throw {
                             message: "Empty creative title"
                         }
-                    vm.creative.Chapters.forEach(function (chapter, i, chapters) {
+                    vm.creative.Capters.forEach(function (chapter, i, chapters) {
                         chapter.NumberOfChapter = i + 1;
                         chapter.CreativeId = vm.creative.Id
                         if (chapter.Name === '')
@@ -58,18 +55,16 @@
                     });
                     creativesService.edit(vm.creative);
                     abp.notify.success('Saved successfully!','');
-                    console.log(vm.creative);
                 } catch (exp) {
                     abp.message.error("", exp.message);
                 }
             };
 
             vm.removeCreative = function () {
-                console.log(vm.creative.Tags);
             }
 
             vm.newChapter = function () {
-                vm.creative.Chapters.push({
+                vm.creative.Capters.push({
                     Name: "New Chapter",
                     Content: ''
                 });
@@ -77,11 +72,12 @@
 
             vm.removeChapter = function () {
                 var index = 0;
-                if (vm.creative.Chapters !== null) {
-                    while (vm.creative.Chapters[index].Id === vm.globalIndex) {
+                if (vm.creative.Capters !== null) {
+                    while (vm.creative.Capters[index].Id === vm.globalIndex) {
                         index++;
                     }
-                    vm.creative.Chapters.splice(index, 1);
+                    vm.creative.Capters.splice(index, 1);
+                    vm.globalIndex = 0;
                 }
             }
 
@@ -89,7 +85,7 @@
             function changePosition() {
                 var index1 = position.prev.indexOf(position.id);
                 var index2 = position.next.indexOf(position.id);
-                vm.creative.Chapters.splice(index2, 0, vm.creative.Chapters.splice(index1, 1)[0]);
+                vm.creative.Capters.splice(index2, 0, vm.creative.Capters.splice(index1, 1)[0]);
             }
 
             $(function () {

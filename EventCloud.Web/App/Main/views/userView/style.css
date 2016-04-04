@@ -2,6 +2,9 @@
   .sidebar-nav .navbar .navbar-collapse {
     padding: 0;
     max-height: none;
+    background-color: lightgray;
+    border-radius: 5px;
+    padding-bottom:20px;
   }
   .sidebar-nav .navbar ul {
     float: none;
@@ -12,10 +15,18 @@
   .sidebar-nav .navbar li {
     float: none;
     display: block;
+    margin: 5px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
   }
-  .sidebar-nav .navbar li a {
+  .sidebar-nav .navbar li div {
     padding-top: 12px;
     padding-bottom: 12px;
+  }
+  img{
+      height:200px;
+      width: 200px;
+      margin: 5px;
   }
 }
 

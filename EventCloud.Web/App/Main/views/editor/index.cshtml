@@ -1,55 +1,56 @@
 ﻿<link href="~/App/Main/views/editor/style.css" rel="stylesheet">
 <div id="EditorIndex" ng-controller="app.views.editor.indexx as vm">
-    <div class="pull-right">
-        <button type="button"
-                class="btn btn-danger"
-                ng-click="vm.removeCreative()">
-            @L("RemoveCreative")
-        </button>
-        <button type="button"
-                class="btn btn-success"
-                ng-click="vm.saveCreative()">
-            @L("SaveCreative")
-        </button>
-    </div>
-    <h2>
-        <input ng-model="vm.creative.Title"
-               style="border:none" />
-    </h2>
-    <div class="input-group">
-        <span class="input-group-addon" id="basic-addon3">Tags:</span>
-        <oi-select  oi-options="item.Name for item in vm.creative.Tags"
-                   ng-model="vm.creative.Tags"
-                   multiple
-                   oi-select-options="{
+    <div>
+        <div ng-if="vm.isAccess" class="pull-right">
+            <button type="button"
+                    class="btn btn-danger"
+                    ng-click="vm.removeCreative()">
+                @L("RemoveCreative")
+            </button>
+            <button type="button"
+                    class="btn btn-success"
+                    ng-click="vm.saveCreative()">
+                @L("SaveCreative")
+            </button>
+        </div>
+        <h2 ng-if="vm.isAccess">
+            <input ng-model="vm.creative.Title"
+                   style="border:none" />
+        </h2>
+        <div class="input-group" ng-if="vm.isAccess">
+            <span class="input-group-addon" id="basic-addon3">Tags:</span>
+            <oi-select oi-options="item.Name for item in vm.creative.Tags"
+                       ng-model="vm.creative.Tags"
+                       multiple
+                       oi-select-options="{
                     newItem: true,
                     newItemModel: {Id: null, Name: $query}
                    }">
-       </oi-select>   
-    </div>
-    <div class="row" id="sortable">
-        <div class="col-md-2 dropdown"
-             ng-repeat="chapter in vm.creative.Chapters" track by $index
-             draggable="true"
-             id="{{$index}}">
-            <div ng-click="vm.getChapterContent($index)"
-                 class="btn btn-default dropbtn">
-                <div style="overflow:hidden;">
-                    {{chapter.Name}}
-                </div>
-                <div class="dropdown-content">
-                    <div contenteditable="false"
-                         ng-model="chapter.Content"
-                         ng-hide="showHtml"
-                         ng-style="vm.creativeReader"
-                         ta-bind="text"
-                         class="ng-pristine ng-untouched ng-valid ng-scope ng-isolate-scope ta-text  form-control" 
-                         id="context"/>
-           
+            </oi-select>
+        </div>
+        <div class="row" id="sortable" >
+            <div class="col-md-2 dropdown"
+                 ng-repeat="chapter in vm.creative.Capters" track by $index
+                 draggable="true"
+                 id="{{$index}}">
+                <div ng-click="vm.getChapterContent($index)"
+                     class="btn btn-default dropbtn">
+                    <div style="overflow:hidden;">
+                        {{chapter.Name}}
+                    </div>
+                    <div class="dropdown-content">
+                        <div contenteditable="false"
+                             ng-model="chapter.Content"
+                             ng-hide="showHtml"
+                             ng-style="vm.creativeReader"
+                             ta-bind="text"
+                             class="ng-pristine ng-untouched ng-valid ng-scope ng-isolate-scope ta-text  form-control"
+                             id="context" />
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="pull-right">
+        <div class="pull-right" ng-if="vm.isAccess">
             <button type="button"
                     class="btn btn-danger glyphicon glyphicon-remove"
                     ng-click="vm.removeChapter()"></button>
@@ -57,10 +58,10 @@
                     class="btn btn-success glyphicon glyphicon-plus"
                     ng-click="vm.newChapter()"></button>
         </div>
+        <h2 ng-if="vm.isAccess">
+            <input ng-model="vm.creative.Capters[vm.globalIndex].Name"
+                   style="border:none" />
+        </h2>
+        <div text-angular="text-angular" ng-if="vm.isAccess" ng-model="vm.creative.Capters[vm.globalIndex].Content"></div>
     </div>
-    <h2>
-        <input ng-model="vm.creative.Chapters[vm.globalIndex].Name"
-               style="border:none" />
-    </h2>
-    <div text-angular="text-angular" ng-model="vm.creative.Chapters[vm.globalIndex].Content"></div>
 </div>
