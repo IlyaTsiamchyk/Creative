@@ -23,7 +23,7 @@ namespace EventCloud.Application
 
         void Edit(CreativeEditInput input);
 
-        Task Delete(int creativeId);
+        Task Delete(int id);
 
         void AddRate(RateInput input);
     }
