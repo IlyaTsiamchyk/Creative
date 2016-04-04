@@ -69,7 +69,12 @@ namespace EventCloud.EntityFramework.Repositories
                 Context.Tags.Add(tag);
             else
             {
-                Context.Entry<Tag>(tag).State = System.Data.Entity.EntityState.Modified;
+                var t = Context.Tags.FirstOrDefault(tg => tg.Id == tag.Id);
+                if (t != null)
+                {
+                    //tag.Id = t.Id;
+                    Context.Entry<Tag>(tag).State = System.Data.Entity.EntityState.Modified;
+                }
                 //Context.Entry<Chapter>(chapter).State = System.Data.Entity.EntityState.Added;
             }
 

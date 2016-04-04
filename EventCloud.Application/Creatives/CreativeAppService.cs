@@ -49,9 +49,9 @@ namespace EventCloud.Application
                 })
                 .ToList();
 
-            var fts = _creativeRepository.FullTextSearch("The");
-            var res = fts.ToList();
-            var sec = _creativeRepository.FullTextSearch("the").ToList();
+            //var fts = _creativeRepository.FullTextSearch("The");
+            //var res = fts.ToList();
+            //var sec = _creativeRepository.FullTextSearch("the").ToList();
 
             return creatives;
         }
@@ -142,8 +142,8 @@ namespace EventCloud.Application
             };
 
             _creativeRepository.Update(creative);
-
-            foreach (var chapter in input.Chapters)
+            
+            foreach (var chapter in input.Chapters ?? Array.Empty<Chapter>())
             {
                 //chapter.Creative = creative;
                 _creativeRepository.UpdateChapter(chapter);
@@ -151,6 +151,7 @@ namespace EventCloud.Application
 
             foreach (var tag in input.Tags)
             {
+                tag.Creatives.Add(creative);
                 _creativeRepository.UpdateTag(tag);
             }
         }
