@@ -9,9 +9,8 @@
             function loadCreatives() {
                 sessionService.getCurrentLoginInformations().success(function (result) {
                     vm.sessionInformation = result;
-                    creativesService.getList(sessionInformation.user.id).success(function (result) {
+                    creativesService.getAll().success(function (result) {
                         vm.creatives = result;
-                        vm.Raating = vm.creatives.creativeRating;
                         console.log(vm.creatives);
                     });
                 });
@@ -38,11 +37,18 @@
 
             vm.setRating = function (creativeId, index) {
                 creativesService.addRate({
-                    Value: vm.Rating[index],
+                    Value: vm.creatives[index].creativeRate,
                     UserBy: vm.sessionInformation.user.id,
                     CreativeId: creativeId
+                }).success(function () {
+                    abp.notify.success("Successfully saved.");
                 });
             }
+
+            vm.isAccess = function (userId) {
+                return vm.sessionInformation.user.id === userId ? true : false;
+            };
+
             loadCreatives();
 
         }

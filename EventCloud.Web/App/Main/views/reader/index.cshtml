@@ -1,21 +1,13 @@
 ﻿<link href="~/App/Main/views/reader/style.css" rel="stylesheet">
 <div id="EditorIndex" ng-controller="app.views.reader.index as vm">
     
-    <input-stars class="pull-right" ng-click="vm.setRating()" max="5" ng-model="vm.Rating"></input-stars>
+    <input-stars class="pull-right" ng-click="vm.setRating()" max="5" ng-model="vm.creative.CreativeRate"></input-stars>
     <div ng-if="vm.success">
         <h2 ng-style="vm.creativeReader">{{vm.creative.Title}}</h2>
         <div ng-if="!vm.chaptersIsEmpty">
             <div ng-style="vm.creativeReader">
                 <div>
-                    <div class="pull-right">
-                        <div class="btn-group" role="group" aria-label="Basic example">
-                            <button type="button" style="width: 80px" class="btn btn-secondary  btn-default" ng-click="vm.setStyleId(0)">@L("Small")</button>
-                            <button type="button" style="width: 80px" class="btn btn-secondary  btn-default" ng-click="vm.setStyleId(1)">@L("Middle")</button>
-                            <button type="button" style="width: 80px" class="btn btn-secondary  btn-default" ng-click="vm.setStyleId(2)">@L("Big")</button>
-                        </div>
-                    </div>
                     <h2>{{vm.chapterToShow.Name}}</h2>
-                    
                     <div contenteditable="false"
                          ng-model="vm.chapterToShow.Content"
                          ng-hide="showHtml"

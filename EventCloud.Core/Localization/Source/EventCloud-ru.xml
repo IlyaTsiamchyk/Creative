@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localizationDictionary culture="ru">
+  <texts>
+    <text name="HomePage" value="Домашняя страница" />
+    <text name="About" value="About" />
+    <text name="WellcomeMessage" value="Добро пожаловать!" />
+    <text name="LearnMore" value="Смотреть еще" />
+
+    <text name="FormIsNotValidMessage" value="Не правильно заполнена форма. Проверте и исправте ошибки." />
+    <text name="TenantNameCanNotBeEmpty" value="Имя не может быть пустым" />
+
+    <text name="InvalidUserNameOrPassword" value="Не верный логин или пароль" />
+    <text name="ThereIsNoTenantDefinedWithName{0}" value="Не обнаружено пользователя с именем {0}" />
+    <text name="TenantIsNotActive" value="Пользователь {0} не активен." />
+    <text name="UserIsNotActiveAndCanNotLogin" value="Пользователь {0} и не может войти." />
+    <text name="PleaseEnterLoginInformation" value="Введите логин" />
+    <text name="TenancyName" value="Tenancy name" />
+    <text name="UserNameOrEmail" value="Имя пользователя или email" />
+    <text name="Password" value="Пароль" />
+    <text name="RememberMe" value="Запомнить меня" />
+    <text name="LogIn" value="Вход" />
+
+    <text name="LoginFailed" value="Ошибка входа!" />
+
+    <text name="NameSurname" value="Имя Фамилия" />
+    <text name="UserName" value="Имя пользователя" />
+    <text name="Name" value="Имя" />
+    <text name="Surname" value="Фамилия" />
+    <text name="EmailAddress" value="Email" />
+
+    <text name="Events" value="Событие" />
+    <text name="NewEvent" value="Новое событие" />
+    <text name="ShowCanceledEvents" value="Показать удаленные события" />
+    <text name="ThisEventIsCanceled" value="Это событие удалено" />
+    <text name="Details" value="Детали" />
+    <text name="BackToEvents" value="Вернутся к событиям" />
+    <text name="Register" value="Регистр" />
+    <text name="CancelRegistration" value="Закрыть регистрацию" />
+    <text name="CancelTheEvent" value="Закрыть событие" />
+    <text name="Title" value="Название" />
+    <text name="Description" value="Описание" />
+    <text name="Date" value="Дата" />
+    <text name="Cancel" value="Отмена" />
+    <text name="Save" value="Сохранить" />
+    <text name="SomeStatistics" value="Немного статистики" />
+    <text name="Links" value="Ссылки" />
+    <text name="Logout" value="Выйти" />
+    <text name="Tenants" value="Пользователь" />
+    <text name="Users" value="Пользователь" />
+    <text name="Registrations" value="Registrations" />
+    <text name="OrLoginWith" value="Либо вход с" />
+    <text name="AdminPassword" value="Пароль администратора" />
+    <text name="CreateTheTenant" value="Создать пользователя" />
+
+    <text name="Creatives" value="Креативы" />
+    <text name="Category" value="Категория" />
+    <text name="Author" value="Автор" />
+    <text name="Read" value="Читать" />
+    <text name="Edit" value="Редактировать" />
+    <text name="Next" value="Вперед" />
+    <text name="Previous" value="Назад" />
+    <text name="Tags" value="Тэги" />
+    <text name="SaveCreative" value="Сохранить креатив" />
+    <text name="RemoveCreative" value="Удалить креатив" />
+    <text name="CreationTime" value="Дата создания" />
+    <text name="FirstMedal" value="Первый креатив!" />
+    <text name="FifthMedal" value="Написал больше 5 креативов!" />
+    <text name="ThirdMedal" value="ты ТРЕТИЙ!)" />
+    <text name="NewCreative" value="Новый креатив)" />
+    <text name="ChaptersIsNotFound" value="Главы не найдены" />
+    <text name="CreativeIsNotFound" value="Креатив не найден" />
+
+  </texts>
+</localizationDictionary>
