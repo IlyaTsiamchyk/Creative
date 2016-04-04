@@ -31,7 +31,7 @@ namespace EventCloud.EntityFramework
          */
         static EventCloudDbContext()
         {
-            DbInterception.Add(new FtsInterceptor());
+            //DbInterception.Add(new FtsInterceptor());
         }
 
         public EventCloudDbContext()
