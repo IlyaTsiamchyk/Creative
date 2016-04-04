@@ -46,7 +46,7 @@ namespace EventCloud.Users
         {
             var user = await _userManager.GetUserByIdAsync(id);
             
-            return user.MapTo<UsersOutput>();
+            return new UsersOutput { EmailAddress = user.EmailAddress, Name = user.Name, CreationTime = user.CreationTime, Id = user.Id };
         }
     }
 }
