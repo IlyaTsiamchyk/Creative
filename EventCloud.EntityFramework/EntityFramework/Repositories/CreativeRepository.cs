@@ -53,7 +53,16 @@ namespace EventCloud.EntityFramework.Repositories
         public void UpdateChapter(Chapter chapter)
         {
             if (chapter.Id != 0)
-                Context.Entry<Chapter>(chapter).State = System.Data.Entity.EntityState.Modified;
+            {
+                var dbChapter = Context.Chapters.Find(chapter.Id);
+
+                dbChapter.Name = chapter.Name;
+                dbChapter.NumberOfChapter = chapter.NumberOfChapter;
+                dbChapter.Content = chapter.Content;
+                dbChapter.Url = chapter.Url;
+
+                Context.Entry<Chapter>(dbChapter).State = System.Data.Entity.EntityState.Modified;
+            }
             else
             {
                 //Context.Entry<Chapter>(chapter).State = System.Data.Entity.EntityState.Added;
