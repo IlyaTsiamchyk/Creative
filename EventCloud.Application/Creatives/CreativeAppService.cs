@@ -173,7 +173,7 @@ namespace EventCloud.Application
 
         public List<Tag> GetTags()
         {
-            return _creativeRepository.GetTags();
+            return _creativeRepository.GetTags().Select(t => new Tag { Id = t.Id, Name = t.Name}).ToList();
         }
     }
 }
