@@ -324,6 +324,7 @@
     <Content Include="App\Main\views\layout\layout.js" />
     <Content Include="App\Main\views\events\index.js" />
     <Content Include="App\Main\views\about\about.js" />
+    <Content Include="App\Main\views\layout\style.css" />
     <Content Include="App\Main\views\reader\index.js" />
     <Content Include="App\Main\views\reader\style.css" />
     <Content Include="App\Main\views\userView\index.js" />

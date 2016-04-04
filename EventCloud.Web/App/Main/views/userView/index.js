@@ -10,21 +10,26 @@
             function loadCreatives() {
                 sessionService.getCurrentLoginInformations().success(function (result) {
                     vm.sessionInformation = result;
-                    creativesService.getList($stateParams.id).success(function (result) {
+                    var Id = $stateParams.id;
+                    
+                    if (Id === '') Id = vm.sessionInformation.user.id;
+                    creativesService.getList(Id).success(function (result) {
                         vm.creatives = result;
                         console.log(vm.creatives);
                         if (vm.creatives[0].userId % 3 === 0) vm.medals[0] = true;
                         if (vm.creatives.length >= 1) vm.medals[1] = true;
                         if (vm.creatives.length >= 5) vm.medals[2] = true;
-                        //if (vm.creatives.length >= 5) vm.medals[3] = true;
+                        
+                        userService.getUser(Id).success(function (result) {
+                            vm.user = result;
+                            console.log(result);
+                        });
                     });
                 });
             };
 
             function loadUserInformation() {
-                userService.getUser($stateParams.id).success(function (result) {
-                    console.log(result);
-                });
+                
             }
             loadUserInformation();
 

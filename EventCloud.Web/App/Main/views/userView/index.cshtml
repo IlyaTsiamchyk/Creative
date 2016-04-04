@@ -16,15 +16,15 @@
                     <ul class="nav navbar-nav">
                         <li class="row">
                             <div class="col-xs-5">@L("UserName")</div>
-                            <div class="col-xs-7"> asdassssssssdas</div>
+                            <div class="col-xs-7"> {{vm.user.name}}</div>
                         </li>
                         <li class="row">
                             <div class="col-xs-5">&#64</div>
-                            <div class="col-xs-7"> asdassssssssdas</div>
+                            <div class="col-xs-7"> {{vm.user.emailAddress}}</div>
                         </li>
                         <li class="row">
                             <div class="col-xs-5">@L("CreationTime")</div>
-                            <div class="col-xs-7"> asdassssssssdas</div>
+                            <div class="col-xs-7"> {{vm.user.creationTime | momentFormat:'DD.MM.YYYY'}}</div>
                         </li>
                         <li class="dropdown" ng-if="vm.medals[0]">
                             <div>

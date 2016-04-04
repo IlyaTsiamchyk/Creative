@@ -2,11 +2,11 @@
 <div id="EditorIndex" ng-controller="app.views.editor.indexx as vm">
     <div>
         <div ng-if="vm.isAccess" class="pull-right">
-            <button type="button"
+            <a ng-href="#/user/" type="button"
                     class="btn btn-danger"
                     ng-click="vm.removeCreative()">
                 @L("RemoveCreative")
-            </button>
+            </a>
             <button type="button"
                     class="btn btn-success"
                     ng-click="vm.saveCreative()">
@@ -19,18 +19,18 @@
         </h2>
         <div class="input-group" ng-if="vm.isAccess">
             <span class="input-group-addon" id="basic-addon3">@L("Tags"):</span>
-            <oi-select oi-options="item.Name for item in vm.creative.Tags"
+            <oi-select oi-options="item.Name for item in vm.Tags"
                        ng-model="vm.creative.Tags"
                        multiple
                        oi-select-options="{
                     newItem: true,
-                    newItemModel: {Id: null, Name: $query}
+                    newItemModel: {Id: null, Name: $query, Creatives: [], Uri: null}
                    }">
             </oi-select>
         </div>
         <div class="row" id="sortable" >
             <div class="col-md-2 dropdown"
-                 ng-repeat="chapter in vm.creative.Capters" track by $index
+                 ng-repeat="chapter in vm.creative.Chapters" track by $index
                  draggable="true"
                  id="{{$index}}">
                 <div ng-click="vm.getChapterContent($index)"
@@ -59,9 +59,9 @@
                     ng-click="vm.newChapter()"></button>
         </div>
         <h2 ng-if="vm.isAccess">
-            <input ng-model="vm.creative.Capters[vm.globalIndex].Name"
+            <input ng-model="vm.creative.Chapters[vm.globalIndex].Name"
                    style="border:none" />
         </h2>
-        <div text-angular="text-angular" ng-if="vm.isAccess" ng-model="vm.creative.Capters[vm.globalIndex].Content"></div>
+        <div text-angular="text-angular" ng-if="vm.isAccess" ng-model="vm.creative.Chapters[vm.globalIndex].Content"></div>
     </div>
 </div>

@@ -4,5 +4,14 @@
         '$scope', function ($scope) {
             var vm = this;
             //Layout logic...
+            function initStyle() {
+                var flag = localStorage.getItem("style");
+                if (flag) {
+                    var elements = document.getElementsByClassName("abody");
+                    for (var i = 0; i < elements.length; i++)
+                        elements[i].className = elements[i].className.replace('abody', 'bbody');
+                }
+            }
+            initStyle();
         }]);
 })();

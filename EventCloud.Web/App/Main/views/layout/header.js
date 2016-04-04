@@ -15,6 +15,22 @@
                 vm.currentMenuName = toState.menu;
             });
 
+            vm.setStyle = function () {
+                var flag = true;
+                var elements = document.getElementsByClassName("abody");
+                if (elements.length === 0) {
+                    elements = document.getElementsByClassName("bbody");
+                    flag = false;
+                }
+                for (var i = 0; i < elements.length; i++) {
+                    if (flag)
+                        elements[i].className = elements[i].className.replace('abody', 'bbody');
+                    else
+                        elements[i].className = elements[i].className.replace('bbody', 'abody');
+                }
+                localStorage.setItem("style", flag);
+            }
+
             vm.getShownUserName = function () {
                 if (!abp.multiTenancy.isEnabled) {
                     return appSession.user.userName;

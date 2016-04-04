@@ -16,11 +16,11 @@
                             if (vm.sessionInformation.user.id === creative.UserId) {
                                 vm.isAccess = true;
                                 vm.creative = creative;
-                                vm.creative.Capters.sort(function (a, b) {
+                                vm.creative.Chapters.sort(function (a, b) {
                                     return a.NumberOfChapter - b.NumberOfChapter;
                                 })
                                 console.log(vm.creative);
-                                console.log(vm.creative.Capters);
+                                console.log(vm.creative.Chapters);
                             }
                             else
                                 abp.message.error("Error!", "You haven't eccess");
@@ -31,6 +31,12 @@
                 } catch (exp) {
                     
                 }
+                creativesService.getTags().success(function (result) {
+                    vm.tags = result
+                    vm.Tags = convert(vm.tags);
+                    console.log(vm.creative.Tags);
+                    console.log(vm.Tags);
+                });
             });
 
             vm.globalIndex = 0;
@@ -45,7 +51,7 @@
                         throw {
                             message: "Empty creative title"
                         }
-                    vm.creative.Capters.forEach(function (chapter, i, chapters) {
+                    vm.creative.Chapters.forEach(function (chapter, i, chapters) {
                         chapter.NumberOfChapter = i + 1;
                         chapter.CreativeId = vm.creative.Id
                         if (chapter.Name === '')
@@ -53,7 +59,7 @@
                                 message: "Empty chapter name"
                             }
                     });
-                    vm.creative.Chapters = vm.creative.Capters;
+                    vm.creative.Chapters = vm.creative.Chapters;
                     console.log(vm.creative);
                     creativesService.edit(vm.creative);
                     abp.notify.success('Saved successfully!','');
@@ -63,22 +69,38 @@
             };
 
             vm.removeCreative = function () {
+                creativesService.delete(vm.creative.Id).success(function () {
+                    abp.notify.success('Remove successfully!', '');
+                })
             }
 
             vm.newChapter = function () {
-                vm.creative.Capters.push({
+                vm.creative.Chapters.push({
                     Name: "New Chapter",
                     Content: ''
                 });
             }
 
+            function convert(array) {
+                var result = [];
+                for (var i = 0; i < array.length; i++) {
+                    result[i] = {
+                        Name: array[i].name,
+                        Id: array[i].id,
+                        Creatives: [],
+                        Url: null
+                    }
+                }
+                return result;
+            }
+
             vm.removeChapter = function () {
                 var index = 0;
-                if (vm.creative.Capters !== null) {
-                    while (vm.creative.Capters[index].Id === vm.globalIndex) {
+                if (vm.creative.Cahpters !== null) {
+                    while (vm.creative.Chapters[index].Id === vm.globalIndex) {
                         index++;
                     }
-                    vm.creative.Capters.splice(index, 1);
+                    vm.creative.Chapters.splice(index, 1);
                     vm.globalIndex = 0;
                 }
             }
@@ -87,7 +109,7 @@
             function changePosition() {
                 var index1 = position.prev.indexOf(position.id);
                 var index2 = position.next.indexOf(position.id);
-                vm.creative.Capters.splice(index2, 0, vm.creative.Capters.splice(index1, 1)[0]);
+                vm.creative.Chapters.splice(index2, 0, vm.creative.Chapters.splice(index1, 1)[0]);
             }
 
             $(function () {

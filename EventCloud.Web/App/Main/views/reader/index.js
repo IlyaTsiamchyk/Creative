@@ -18,9 +18,9 @@
             
             var chapterNumber = 0;
             vm.choiseChapter = function (offset) {
-                chapterNumber = ((chapterNumber + offset) >= 0 && offset < 0) || ((chapterNumber + offset) < vm.creative.Capters.length && offset > 0)
+                chapterNumber = ((chapterNumber + offset) >= 0 && offset < 0) || ((chapterNumber + offset) < vm.creative.Chapters.length && offset > 0)
                     ? chapterNumber + offset : chapterNumber;
-                vm.chapterToShow = vm.creative.Capters[chapterNumber];
+                vm.chapterToShow = vm.creative.Chapters[chapterNumber];
             }
 
             creativesService.details($stateParams.id).success(function (result) {
@@ -28,7 +28,7 @@
                 console.log(vm.creative);
                 if (vm.creative !== null) {
                     vm.success = true;
-                    if (vm.creative.Capters.length !== 0) {
+                    if (vm.creative.Chapters.length !== 0) {
                         vm.choiseChapter(chapterNumber);
                         vm.chaptersIsEmpty = false;
                     }
