@@ -5,6 +5,7 @@ using Abp.Application.Services.Dto;
 using EventCloud.Creatives;
 using System.Web.Http;
 using System.Collections.Generic;
+using EventCloud.Core.Entities;
 
 namespace EventCloud.Application
 {
@@ -13,6 +14,7 @@ namespace EventCloud.Application
         [HttpGet]
         IEnumerable<CreativeListDtoAll> GetAll();
         Task<IEnumerable<CreativeListDtoAll>> GetList(long userId);
+        List<Tag> GetTags();
 
         Task<string> Details(int creativeId);
         //Task<CreativeListDto> Details(int creativeId);

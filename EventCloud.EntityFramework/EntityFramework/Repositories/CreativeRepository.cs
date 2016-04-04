@@ -45,6 +45,11 @@ namespace EventCloud.EntityFramework.Repositories
             return q.ToList();
         }
 
+        public List<Tag> GetTags()
+        {
+            return Context.Tags.ToList();
+        }
+
         public void UpdateChapter(Chapter chapter)
         {
             if (chapter.Id != 0)
@@ -56,6 +61,19 @@ namespace EventCloud.EntityFramework.Repositories
             }
 
             Context.SaveChanges();      
+        }
+
+        public void UpdateTag(Tag tag)
+        {
+            if (tag.Id == 0)
+                Context.Tags.Add(tag);
+            else
+            {
+                Context.Entry<Tag>(tag).State = System.Data.Entity.EntityState.Modified;
+                //Context.Entry<Chapter>(chapter).State = System.Data.Entity.EntityState.Added;
+            }
+
+            Context.SaveChanges();
         }
     }
 }

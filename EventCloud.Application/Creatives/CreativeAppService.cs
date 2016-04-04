@@ -148,6 +148,11 @@ namespace EventCloud.Application
                 //chapter.Creative = creative;
                 _creativeRepository.UpdateChapter(chapter);
             }
+
+            foreach (var tag in input.Tags)
+            {
+                _creativeRepository.UpdateTag(tag);
+            }
         }
 
         public async Task Delete(int creativeId)
@@ -164,6 +169,11 @@ namespace EventCloud.Application
             catch (ArgumentException ex)
             {
             }
+        }
+
+        public List<Tag> GetTags()
+        {
+            return _creativeRepository.GetTags().Select(t => new Tag { Id = t.Id, Name = t.Name}).ToList();
         }
     }
 }
