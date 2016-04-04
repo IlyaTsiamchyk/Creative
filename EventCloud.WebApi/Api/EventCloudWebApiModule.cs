@@ -26,6 +26,12 @@ namespace EventCloud.Api
                 .ForMethod("GetAll").WithVerb(HttpVerb.Get)
                 .Build();
 
+            DynamicApiControllerBuilder
+                .For<ICategoryAppService>("app/category")
+                .ForMethod("Create").WithVerb(HttpVerb.Post)
+                .ForMethod("Delete").WithVerb(HttpVerb.Delete)
+                .Build();
+
             Configuration.Modules.AbpWebApi().HttpConfiguration.Filters.Add(new HostAuthenticationFilter("Bearer"));
         }
     }

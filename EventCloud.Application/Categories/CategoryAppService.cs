@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Abp.AutoMapper;
 using Abp.Application.Services.Dto;
+using System.Web.Http;
 
 namespace EventCloud.Application
 {
@@ -22,7 +23,17 @@ namespace EventCloud.Application
             _categoryRepository = categoryRepository;
         }
 
-        public async Task<Category> Details(int id)
+        public void Create([FromBody] Category category)
+        {
+            _categoryRepository.Insert(category);
+        }
+
+        public async Task Delete([FromBody]int categoryId)
+        {
+            await _categoryRepository.DeleteAsync(categoryId);
+        }
+
+        public async Task<Category> GetCategory(int id)
         {
             var category = await _categoryRepository.FirstOrDefaultAsync(id);
 
@@ -32,6 +43,11 @@ namespace EventCloud.Application
             }
 
             return category;
+        }
+
+        public async Task PutCategory(Category category)
+        {
+            await _categoryRepository.UpdateAsync(category);
         }
 
         public IEnumerable<CategoryListDto> GetList()
