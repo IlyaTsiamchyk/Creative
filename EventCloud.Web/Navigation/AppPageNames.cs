@@ -2,8 +2,7 @@ namespace EventCloud.Web.Navigation
 {
     public static class AppPageNames
     {
-        public const string Events = "Events";
-        public const string About = "About";
+        public const string Home = "Home";
         public const string Creatives = "Creatives";
     }
 }

@@ -44,6 +44,7 @@
     <text name="Save" value="Сохранить" />
     <text name="SomeStatistics" value="Немного статистики" />
     <text name="Links" value="Ссылки" />
+    <text name="Login" value="Войти" />
     <text name="Logout" value="Выйти" />
     <text name="Tenants" value="Пользователь" />
     <text name="Users" value="Пользователь" />
@@ -69,6 +70,7 @@
     <text name="NewCreative" value="Новый креатив)" />
     <text name="ChaptersIsNotFound" value="Главы не найдены" />
     <text name="CreativeIsNotFound" value="Креатив не найден" />
+    <text name="Home" value="Домой" />
 
   </texts>
 </localizationDictionary>
