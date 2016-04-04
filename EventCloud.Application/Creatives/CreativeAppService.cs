@@ -106,7 +106,7 @@ namespace EventCloud.Application
                 .Include(c => c.Chapters)
                 .Include(c => c.Rates)
                 .Select(c => new CreativeListDto {
-                    Capters = c.Chapters, Tags = c.Tags,
+                    Chapters = c.Chapters, Tags = c.Tags,
                     Id = c.Id, CategoryId = c.CategoryId,
                     CategoryName = c.Category.Name,
                     CategoryUrl = c.Category.Url,

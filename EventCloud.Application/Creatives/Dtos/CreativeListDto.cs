@@ -20,7 +20,7 @@ namespace EventCloud.Application
         public string CategoryUrl { get; set; }
 
         public IList<Tag> Tags { get; set; }
-        public IList<Chapter> Capters { get; set; }
+        public IList<Chapter> Chapters { get; set; }
         public double? CreativeRate { get; set; }
     }
 }
