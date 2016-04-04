@@ -15,6 +15,7 @@ namespace EventCloud.Contracts
         void AddChapter(Chapter chapter);
         void UpdateChapter(Chapter chapter);
         List<Chapter> FullTextSearch(string searchString);
-
+        List<Tag> GetTags();
+        void UpdateTag(Tag tag);
     }
 }
