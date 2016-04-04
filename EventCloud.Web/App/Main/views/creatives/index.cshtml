@@ -1,11 +1,13 @@
 ﻿<div id="EventsIndex" ng-controller="app.views.creatives.index as vm">
+    <div class="row">
+        <input type="text" class="form-control col-md-4" placeholder="Search" ng-model="search">
+    </div>
     <h2>
         <span>@L("Creatives")</span>
-
         <a ng-click="vm.openNewCreativeDialog()" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> @L("NewCreative")</a>
     </h2>
     <div class="row">
-        <div ng-repeat="creative in vm.creatives " class="event-list-item col-md-6">
+        <div ng-repeat="creative in vm.creatives | orderBy:vm.sortValue:false | filter:search" class="event-list-item col-md-6">
             <div class="event-body">
                 <h3 class="event-title">
                     {{creative.title}}
